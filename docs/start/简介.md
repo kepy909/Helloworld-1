@@ -24,8 +24,8 @@
 ❖  task cookie <cmd>                 ✧ 检测本地账号是否有效 check、使用WSKEY更新CK update，扩展用法(加在末尾): <num> 指定账号
 ❖  task env <cmd>                    ✧ 管理全局环境变量功能(交互)，添加 add、删除 del、修改 edit、查询 search，支持快捷命令
 
-❖  task repo <url> <branch> <path>   ✧ 添加 Own 扩展仓库功能，拉取仓库至本地后自动添加相关变量并配置定时任务
-❖  task raw <url>                    ✧ 添加 Raw 扩展脚本功能，单独拉取脚本至本地后自动添加相关变量并配置定时任务
+❖  task repo <url> <branch> <path>   ✧ 添加 Own Repo 扩展仓库功能，拉取仓库至本地后自动添加相关变量并配置定时任务
+❖  task raw <url>                    ✧ 添加 Own RawFile 扩展脚本功能，单独拉取脚本至本地后自动添加相关变量并配置定时任务
 
 ❖  taskctl server status             ✧ 查看各服务的详细信息，包括运行状态、创建时间、处理器占用、内存占用、运行时长
 ❖  taskctl hang <cmd>                ✧ 后台挂机程序(后台循环执行活动脚本)功能控制，启动或重启 up、停止 down、查看日志 logs
