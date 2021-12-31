@@ -1,7 +1,7 @@
 # Helloworld
 
 - **一个稳定安全、简单易用、强大CLI命令支持的薅羊毛运行环境** <!-- {docsify-ignore} -->
-- **支持 `JavaScript` `Pyhton` `TypeScript` ，可自动配置定时计划任务** <!-- {docsify-ignore} -->
+- **支持 `JavaScript` `Python` `TypeScript` ，可自动配置定时计划任务** <!-- {docsify-ignore} -->
 
 - **Telegram 通知频道**： [jdhelloworld](https://t.me/jdhelloworld) <!-- {docsify-ignore} -->
 
