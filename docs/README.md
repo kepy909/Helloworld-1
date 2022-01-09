@@ -25,6 +25,7 @@
 ❖  task cleanup                      ✧ 检测并终止卡死的脚本进程以此释放内存占用，扩展用法(加在末尾): <hours> 指定时间
 ❖  task cookie <cmd>                 ✧ 检测本地账号是否有效 check、使用WSKEY更新CK update，扩展用法(加在末尾): <num> 指定账号
 ❖  task env <cmd>                    ✧ 管理全局环境变量功能(交互)，添加 add、删除 del、修改 edit、查询 search，支持快捷命令
+❖  task notify <title> <content>     ✧ 自定义推送通知消息，参数为标题加内容，支持转义字符
 
 ❖  task repo <url> <branch> <path>   ✧ 添加 Own Repo 扩展仓库功能，拉取仓库至本地后自动添加相关变量并配置定时任务
 ❖  task raw <url>                    ✧ 添加 Own RawFile 扩展脚本功能，单独拉取脚本至本地后自动添加相关变量并配置定时任务
