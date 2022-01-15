@@ -61,7 +61,7 @@
     ```bash
     curl -sL https://deb.nodesource.com/setup_17.x | bash -
     ```
-    > nodejs 没有国内源，国内网可能速度较慢
+    > 由于 NodeSource 没有国内源，下载速度可能较慢
 
     ```bash
     yum install -y nodejs 或 apt-get install -y nodejs
@@ -99,7 +99,7 @@
 
 ### 食用方法 <!-- {docsify-ignore} -->
 
-  - 用户端操作
+  - 客户端（对方）操作
 
     ```
     一共三步，请认真阅读自己设备对应操作系统的教程！
@@ -124,7 +124,7 @@
     ```
     > 通过专业软件连接代理也是可以的，运营商网络也支持配置代理，不过最方便的还是通过Wi-Fi连接，因为对方不一定懂这些
   
-  - 服务端操作
+  - 服务提供者（你）操作
   
   > 打开 `http:<ip>:8002` 进入 AnyProxy 面板查看关于东哥域名的请求
 
