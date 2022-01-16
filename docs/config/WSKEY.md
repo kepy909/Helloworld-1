@@ -64,16 +64,16 @@
     > 由于 NodeSource 没有国内源，下载速度可能较慢
 
     ```bash
-    yum install -y nodejs 或 apt-get install -y nodejs
+    apt-get install -y nodejs 或 yum install -y nodejs
     ```
-    > 根据自己的操作系统使用包管理工具自行安装，该命令会附带安装 npm
+    > 根据自己的操作系统使用对应包管理工具进行安装，该命令会附带安装 **npm**
   
   - npm 切换国内源
 
     ```bash
     npm config set registry https://registry.npm.taobao.org
     ```
-    > 如果没有国际互联网环境建议切换为万能的淘宝源
+    > 如果没有国际互联网环境建议切换为国内淘宝源
 
 ### 安装并配置 AnyProxy <!-- {docsify-ignore} -->
 
@@ -95,7 +95,7 @@
     ```bash
     anyproxy
     ```
-    > `Ctrl + C` 停止服务
+    > `Ctrl + C` 停止运行
 
 ### 食用方法 <!-- {docsify-ignore} -->
 
@@ -126,6 +126,6 @@
   
   - 服务提供者（你）操作
   
-  > 打开 `http://<ip>:8002` 进入 AnyProxy 面板查看关于东哥域名的请求
+  > 打开 [http://<ip>:8002](http://<ip>:8002 ':disabled') 进入 AnyProxy 面板查看关于东哥域名的请求
 
   ?> 面板有内容说明代理连接正常，如果请求中没有 `Header` 内容说明证书安装异常
