@@ -37,5 +37,4 @@
 
   - [OpenApi](utils/OpenApi.md)
   - [工具脚本](utils/工具脚本.md)
-  - [其它脚本](utils/其它脚本.md)
   - [自建代理](utils/自建代理.md)
