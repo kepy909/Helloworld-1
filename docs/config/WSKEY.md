@@ -18,45 +18,47 @@
 ?> 1. 建议通过面板中的 `编辑配置 - 账号配置` 进行编辑，有格式检测防止配置出错\
   2. 注意 `pt_pin` 和 `ws_key` 填入的是对应的值，不要把格式和标点符号带进去
 
-```json
-[
-  {
-    "pt_pin": "jd_1234567",
-    "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "remarks": "张三",
-    "config": {
-      "ep": {}
-    }
-  },
-  {
-    "pt_pin": "jd_abcdefg",
-    "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "remarks": "李四",
-    "config": {
-      "ep": {}
-    }
-  },
-  {
-    "pt_pin": "",
-    "ws_key": "",
-    "remarks": "",
-    "config": {
-      "ep": {}
-    }
-  }
-]
-```
+- 编辑位于 **config** 目录下的 **account.json** 配置文件
 
-> `remarks` 是通知备注，会在适配脚本的推送消息中将用户名昵称换成备注名称\
-> `ep` 是设备信息，对于目前来说可填可不填没有实际意义，一般出现在请求的**Body**中
+  ```json
+  [
+    {
+      "pt_pin": "jd_1234567",
+      "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "remarks": "张三",
+      "config": {
+        "ep": {}
+      }
+    },
+    {
+      "pt_pin": "jd_abcdefg",
+      "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "remarks": "李四",
+      "config": {
+        "ep": {}
+      }
+    },
+    {
+      "pt_pin": "",
+      "ws_key": "",
+      "remarks": "",
+      "config": {
+        "ep": {}
+      }
+    }
+  ]
+  ```
 
-> `pt_pin` 是用户名，目前在APP的部分请求中已被加密可能无法通过抓包有效获取，可前往账号设置进行查看\
-> 如果用户名含有中文汉字需转换成 `UrlEncode`，面板自带转换工具，入口：`账号配置 - URL编码/解码`
+  > `remarks` 是通知备注，会在适配脚本的推送消息中将用户名昵称换成备注名称\
+  > `ep` 是设备信息，对于目前来说可填可不填没有实际意义，一般出现在请求的**Body**中
+
+  > `pt_pin` 是用户名，目前在APP的部分请求中已被加密可能无法通过抓包有效获取，可前往账号设置进行查看\
+  > 如果用户名含有中文汉字需转换成 `UrlEncode`，面板自带转换工具，入口：`账号配置 - URL编码/解码`
 
 ***
 
 ## 协助抓取
-> 此方法**旨在为帮助他人抓取WSKEY**，需要一台有**公网**的 Linux 环境，基于 [AnyProxy - 由阿里巴巴集团发布的一款开源抓包工具](https://github.com/alibaba/anyproxy)\
+> 此方法旨在为**帮助他人抓取WSKEY**，需要一台有**公网**的 Linux 环境，基于 [AnyProxy - 由阿里巴巴集团发布的一款开源抓包工具](https://github.com/alibaba/anyproxy)\
 > 如果是本地操作借助一些专业工具即可无需使用此方法，例如安卓：Httpcanary，IOS：Stream、Thor 等App
 
 ### 安装 Nodejs 和 npm 环境 <!-- {docsify-ignore} -->
