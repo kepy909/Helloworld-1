@@ -15,6 +15,7 @@
 - 配置
 
   - [WSKEY](config/WSKEY.md)
+  - [主要仓库](config/主要仓库.md)
   - [扩展仓库](config/扩展仓库.md)
   - [扩展脚本](config/扩展脚本.md)
   - [推送通知](config/推送通知.md)
