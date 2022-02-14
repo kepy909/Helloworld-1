@@ -34,7 +34,7 @@
 ❖  taskctl hang <cmd>                ✧ 后台挂机程序(后台循环执行活动脚本)功能控制，启动或重启 up、停止 down、查看日志 logs
 ❖  taskctl panel <cmd>               ✧ 控制面板和网页终端功能控制，开启或重启 on、关闭 off、登录信息 info、重置密码 respwd
 ❖  taskctl jbot <cmd>                ✧ Telegram Bot 功能控制，启动或重启 start、停止 stop、查看日志 logs
-❖  taskctl env <cmd>                 ✧ 执行环境软件包相关命令(支持 TypeSciprt 和 Python )，安装 install、修复 repairs
+❖  taskctl env <cmd>                 ✧ 执行环境软件包相关命令(支持 TypeScript 和 Python )，安装 install、修复 repairs
 ❖  taskctl check files               ✧ 检查项目相关配置文件是否存在，如果缺失就从模板导入
 
 ❖  update | update all               ✧ 全部更新，包括项目源码、所有仓库和脚本、自定义脚本等
