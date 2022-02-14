@@ -10,7 +10,6 @@
   - [部署前须知](install/部署前须知.md)
   - [安装容器服务](install/安装容器服务.md)
   - [部署项目](install/部署项目.md)
-  - [验证部署结果](install/验证部署结果.md)
   - [配置代理](install/配置代理.md)
 
 - 配置
