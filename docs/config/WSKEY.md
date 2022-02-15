@@ -1,17 +1,20 @@
 # WSKEY
-> 配置后可转换生成有效期为 `16` 个小时的 `pt_key` ，非常稳定，用了以后再也不用月月喊人更新账号了\
-> WSKEY是移动端APP特有的值，有效期为1年相当于永久，注意手动注销、修改密码会导致其失效\
-> 项目已配置定时任务但默认被注释，如需使用自行取消注释，每天更新3次较为稳妥
+> WSKEY是移动端APP特有的值，有效期为1年相当于永久，配置后可转换生成有效期为 `16` 个小时的 `pt_key` \
+> 使用以后再也不用月月喊人更新账号了，非常稳定，需要注意的是**手动注销**、**修改密码**会导致其失效
 
-> 转换脚本位于 **utils/UpdateCookie.js**，是本项目中唯一的加密脚本，为了防止该脚本被滥用已对其中关于**获取签名**部分的代码进行了局部加密\
-> 本项目转换脚本为**本地转换**，没有加密转换部分的代码，其它任何通过在线获取签名的WSKEY转换脚本均存在账号泄露的风险\
-> 作者郑重承诺该脚本没有任何上传行为，可以自行抓包验证，随时接受检验
+!> 转换脚本是本项目中唯一的加密脚本位于 **utils/UpdateCookie.js**，为了防止被滥用已局部加密关于**获取签名**部分的代码\
+ 该转换脚本为**本地转换**，没有加密转换部分的代码，其它任何通过在线获取签名的WSKEY转换脚本均存在账号泄露的风险\
+ 作者郑重承诺该脚本没有任何上传行为，可以自行抓包验证，随时接受检验，我们始终保留对造谣者追究的权利
 
-- 目前推荐定时
+- 目前推荐定时设置
+> 项目已配置定时任务但默认被注释，如需使用自行取消注释
 
 ```
 <自定义分钟> 1,9,17 * * * sleep $((${RANDOM} % 56)) && task cookie update >/dev/null 2>&1
 ```
+?> 温馨提示：更新频率由你的账号数量决定，目前每天更新 `3` 次即可
+
+!> 注意合理规划脚本的定时计划任务，脚本执行时间过长可能导致ck在执行期间过期失效，应在这类脚本执行前进行更新，尤其号多者
 
 ## 配置方法
 
@@ -23,17 +26,17 @@
   ```json
   [
     {
-      "pt_pin": "jd_1234567",
+      "pt_pin": "user_α",
       "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "remarks": "张三",
+      "remarks": "阿尔法",
       "config": {
         "ep": {}
       }
     },
     {
-      "pt_pin": "jd_abcdefg",
+      "pt_pin": "user_β",
       "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "remarks": "李四",
+      "remarks": "贝塔",
       "config": {
         "ep": {}
       }
@@ -50,7 +53,7 @@
   ```
 
   > `remarks` 是通知备注，会在适配脚本的推送消息中将用户名昵称换成备注名称\
-  > `ep` 是设备信息，对于目前来说可填可不填没有实际意义，一般出现在请求的**Body**中
+  > `ep` 是设备信息，对于目前来说可填可不填没有实际意义，一般出现在请求的 **Body** 中
 
   > `pt_pin` 是用户名，目前在APP的部分请求中已被加密可能无法通过抓包有效获取，可前往账号设置进行查看\
   > 如果用户名含有中文汉字需转换成 `UrlEncode`，面板自带转换工具，入口：`账号配置 - URL编码/解码`
@@ -58,8 +61,8 @@
 ***
 
 ## 协助抓取
-> 此方法旨在为**帮助他人抓取WSKEY**，需要一台有**公网**的 Linux 环境，基于 [AnyProxy - 由阿里巴巴集团发布的一款开源抓包工具](https://github.com/alibaba/anyproxy)\
-> 如果是本地操作借助一些专业工具即可无需使用此方法，例如安卓：Httpcanary，IOS：Stream、Thor 等App
+> 此方法**旨在为帮助他人抓取WSKEY**，需要一台有**公网IP**的 Linux 环境，基于 [AnyProxy - 由阿里巴巴集团发布的一款开源抓包工具](https://github.com/alibaba/anyproxy)\
+> 如果是本地操作借助一些专业工具即可无需使用此方法，例如安卓：Httpcanary；IOS：Stream、Thor 等App
 
 ### 安装 Nodejs 和 npm 环境 <!-- {docsify-ignore} -->
 > 如果已安装则忽略该步骤
@@ -136,4 +139,4 @@
 
   > 打开 [http://\<ip\>:8002](http://<ip>:8002 ':disabled') 进入 AnyProxy 面板查看关于 `api.m.jd.com` 域名的 **POST** 请求，`wskey`会出现在 **Cookies** 中
 
-  ?> 面板有内容说明代理连接正常，如果请求中没有 `Header` 内容或者客户端断网说明证书安装异常
+  ?> 面板有内容说明代理连接正常，如果请求中没有 `Header` 内容或者客户端断网说明证书安装异常，已知某为手机容易出现APP断网的情况原因暂时未知
