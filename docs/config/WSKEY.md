@@ -64,7 +64,7 @@
 > 此方法**旨在为帮助他人抓取WSKEY**，需要一台有**公网IP**的 Linux 环境，基于 [AnyProxy - 由阿里巴巴集团发布的一款开源抓包工具](https://github.com/alibaba/anyproxy)\
 > 如果是本地操作借助一些专业工具即可无需使用此方法，例如安卓：Httpcanary；IOS：Stream、Thor 等App
 
-### 安装 Nodejs 和 npm 环境 <!-- {docsify-ignore} -->
+- ### 安装 Nodejs 和 npm 环境 <!-- {docsify-ignore} -->
 > 如果已安装则忽略该步骤
 
   - 安装 Nodejs
@@ -86,7 +86,7 @@
     ```
     > 如果没有国际互联网环境建议切换为国内淘宝源
 
-### 安装并配置 AnyProxy <!-- {docsify-ignore} -->
+- ### 安装并配置 AnyProxy <!-- {docsify-ignore} -->
 
   - 安装
 
@@ -108,7 +108,7 @@
     ```
     > `Ctrl + C` 停止运行
 
-### 食用方法 <!-- {docsify-ignore} -->
+- ### 食用方法 <!-- {docsify-ignore} -->
 
   - 客户端（对方）操作
 
