@@ -46,7 +46,8 @@
   |      `1`     | success        | 请求成功 |
   | `403`/`4403` | openApi 认证失败 |        |
 
-  !> 注意新版本已将 `cookieApiToken` 更名为 `openApiToken`，如仍显示旧版名称请及时修改面板登录密码重置此Token
+  > [!ATTENTION]
+  > 注意新版本已将 `cookieApiToken` 更名为 `openApiToken`，如仍显示旧版名称请及时修改面板登录密码重置此Token
 
 - ### 4. 通用返回内容
 
