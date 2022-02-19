@@ -12,7 +12,7 @@
   - [<i class="fa-regular fa-hexagon-check"></i>&nbsp; 部署项目](install/部署项目.md)
   - [<i class="fa-regular fa-globe"></i>&nbsp; 配置代理](install/配置代理.md)
 
-- <i class="fa-solid fa-gear"></i> 配置
+- <i class="fa-duotone fa-gear"></i> 配置
 
   - [&nbsp;<i class="fa-regular fa-database"></i>&nbsp; WSKEY](config/WSKEY.md)
   - [<i class="fa-regular fa-house-window"></i>&nbsp; 主要仓库](config/主要仓库.md)
