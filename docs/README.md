@@ -18,17 +18,18 @@
 ❖  task <name/path> pkill            ✧ 终止执行，根据脚本匹配对应的进程并立即杀死，当脚本报错死循环时建议使用
 ❖  source runall                     ✧ 全部执行，在选择运行模式后执行指定范围的脚本(交互)，非常耗时不要盲目使用
 
-❖  task list                         ✧ 列出本地脚本清单，扩展用法(加在末尾): <path> 列出指定路径下的脚本
-❖  task ps                           ✧ 查看资源消耗情况和正在运行的脚本进程，当检测到内存占用较高时自动尝试释放
-❖  task exsc                         ✧ 导出互助码变量和助力格式，互助码从最后一个日志提取，受日志内容影响
-❖  task rmlog                        ✧ 删除项目产生的日志文件，默认检测7天以前的日志，扩展用法(加在末尾): <days> 指定天数
-❖  task cleanup                      ✧ 检测并终止卡死的脚本进程以此释放内存占用，扩展用法(加在末尾): <hours> 指定时间
-❖  task cookie <cmd>                 ✧ 检测本地账号是否有效 check、使用WSKEY更新CK update，扩展用法(加在末尾): <num> 指定账号
-❖  task env <cmd>                    ✧ 管理全局环境变量功能(交互)，添加 add、删除 del、修改 edit、查询 search，支持快捷命令
-❖  task notify <title> <content>     ✧ 自定义推送通知消息，参数为标题加内容，支持转义字符
-
 ❖  task repo <url> <branch> <path>   ✧ 添加 Own Repo 扩展仓库功能，拉取仓库至本地后自动添加相关变量并配置定时任务
 ❖  task raw <url>                    ✧ 添加 Own RawFile 扩展脚本功能，单独拉取脚本至本地后自动添加相关变量并配置定时任务
+
+❖  task ps                           ✧ 查看资源消耗情况和正在运行的脚本进程
+❖  task rmlog                        ✧ 删除一定天数的由项目和运行脚本产生的各类日志文件
+❖  task cleanup                      ✧ 检测并终止卡死状态的脚本进程，以释放内存占用提高运行效率
+
+❖  task list                         ✧ 列出本地脚本清单，扩展用法(加在末尾): <path> 列出指定路径下的脚本
+❖  task exsc                         ✧ 导出互助码变量和助力格式，互助码从最后一个日志提取，受日志内容影响
+❖  task cookie <cmd>                 ✧ 检测本地账号是否有效 check、使用WSKEY更新CK update
+❖  task env <cmd>                    ✧ 管理全局环境变量功能(交互)，添加 add、删除 del、修改 edit、查询 search，支持快捷命令
+❖  task notify <title> <content>     ✧ 自定义推送通知消息，参数为标题加内容，支持转义字符
 
 ❖  taskctl server status             ✧ 查看各服务的详细信息，包括运行状态、创建时间、处理器占用、内存占用、运行时长
 ❖  taskctl hang <cmd>                ✧ 后台挂机程序(后台循环执行活动脚本)功能控制，启动或重启 up、停止 down、查看日志 logs
