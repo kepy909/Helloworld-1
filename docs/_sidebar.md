@@ -1,4 +1,4 @@
-- <i class="fa-solid fa-book-open-reader"></i> 入门
+- <i class="fa-solid fa-escalator"></i> 入门
 
   - [<i class="fa-regular fa-tags"></i>&nbsp; 简介](start/简介.md)
   - [<i class="fa-regular fa-message-captions"></i>&nbsp; 前言](start/前言.md)
@@ -19,7 +19,7 @@
   - [<i class="fa-regular fa-diagram-sankey"></i>&nbsp; 扩展仓库](config/扩展仓库.md)
   - [<i class="fa-regular fa-diagram-subtask"></i>&nbsp; 扩展脚本](config/扩展脚本.md)
   - [<i class="fa-regular fa-bell-plus"></i>&nbsp; 推送通知](config/推送通知.md)
-  - [<i class="fa-regular fa-user-helmet-safety"></i>&nbsp; 账号互助](config/账号互助.md)
+  - [<i class="fa-regular fa-user-plus"></i>&nbsp; 账号互助](config/账号互助.md)
   - [<i class="fa-regular fa-user-astronaut"></i>&nbsp; 电报机器人](config/电报机器人.md)
   - [<i class="fa-regular fa-paper-plane"></i>&nbsp; 自定义脚本](config/自定义脚本.md)
 
