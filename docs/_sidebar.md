@@ -1,6 +1,6 @@
 - <i class="fa-solid fa-escalator"></i> 入门
 
-  - [<i class="fa-regular fa-tags"></i>&nbsp; 简介](start/简介.md)
+  - [<i class="fa-regular fa-tags"></i>&nbsp; 简介](README.md)
   - [<i class="fa-regular fa-message-captions"></i>&nbsp; 前言](start/前言.md)
   - [<i class="fa-regular fa-clock-rotate-left"></i>&nbsp; 历史更新](start/历史更新.md)
   - [<i class="fa-regular fa-bullhorn"></i>&nbsp; 重要通知](start/重要通知.md)

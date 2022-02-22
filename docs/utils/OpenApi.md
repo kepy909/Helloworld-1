@@ -1,4 +1,4 @@
-# 面板开放应用接口（OpenApi）
+# 面板开放应用接口
 
 ## 一、API 接口说明
 
@@ -51,67 +51,228 @@
 
 - ### 4. 通用返回内容
 
-  | 参数名 | 参数说明 | 备注            |
-  | :---: | :-----: | --------------- |
-  | code  | 业务代码 | 参考 `业务代码说明`|
-  | data  | 返回结果 |                 |
-  | msg   | 结果消息 |                 |
-  | desc  | 结果描述 |                 |
+  | 参数名 | 参数说明 |
+  | :---: | :-----: |
+  | code  | 业务代码 |
+  | data  | 返回结果 |
+  | msg   | 结果消息 |
+  | desc  | 结果描述 |
 
 ***
 
-## 二、基础接口
+## 二、内置接口
 
-- ### 1. 账号添加或者更新接口
+- ### 1. 添加/更新账号
 
-  - 请求路径：`updateCookie`
-  - 请求方法：`post`
-  - 请求参数
+  - #### 普通Cookie
+
+    - 请求路径：`updateCookie`
+    - 请求方法：`POST`
+
+    - 请求参数
+
+      |  参数名  |   参数说明   |   备注   |
+      | :-----: | :---------: | :-----: |
+      | cookie  | 完整cookie值 | 不能为空 |
+      | userMsg |     备注     | 可以为空 |
+
+    - 响应数据示例
+
+      ```json
+      {
+        msg: "success",
+        code: 1,
+        data: 1
+      }
+      ```
+      > [!NOTE|label:参数说明]
+      > `msg:`：结果消息\
+      > `code`：业务代码中的状态码\
+      > `data`：表示 Cookie 数量（正整数）
+
+  - #### WSKEY & Cookie二合一
+
+    - 请求路径：`addOrUpdateAccount`
+    - 请求方法：`POST`
+
+    - 请求参数
+
+      |  参数名  | 参数说明 | 备注 |
+      | :-----: | :----: | :----: |
+      |  ptPin  | pt_pin | 不能为空 |
+      |  ptKey  | pt_key | 可以为空，如果为空则不更新 |
+      |  wsKey  | ws_key | 不能为空 |
+      | remarks |  备注   | 可以为空，默认为`ptPin`的值 |
+
+    - 响应数据示例
+
+      ```json
+      {
+          msg: "",
+          code: 1,
+          data: {
+              cookieCount: 1,
+              accountCount: 1
+          }
+      }
+      ```
+      > [!NOTE|label:参数说明]
+      > `msg:`：结果消息\
+      > `code`：业务代码中的状态码\
+      > `data`：**cookieCount** 表示 Cookie 数量（正整数）\
+      >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
+
+- ### 2. 删除账号
+
+  - 请求路径：`cookie/delete`
+  - 请求方法：`POST`
+  - 请求参数：
 
     |  参数名  | 参数说明 | 备注 |
-    | :-----: | -------- | ------ |
-    | cookie  | cookie值 | 不能为空 |
-    | userMsg | 备注     | 可以为空 |
+    | :-----: | :----: | :----: |
+    | ptPins  |  数组  | 表示需要删除从CK pt_pin |
 
-  - 响应参数
-
-    | 参数名 | 参数说明 | 备注 |
-    | :---: | :-----: | :-: |
-
-  - 响应数据
+  - 响应数据示例：
 
     ```json
     {
-      "data": null,
-      "code": 1,
-      "msg":"success"
+        msg: "",
+        code: 1,
+        data: {
+            cookieCount: 1,
+            accountCount: 1,
+            deleteCount: 1
+        }
     }
     ```
+    > [!NOTE|label:参数说明]
+    > `msg:`：结果消息\
+    > `code`：业务代码中的状态码\
+    > `data`：**cookieCount** 表示 Cookie 数量（正整数）\
+    >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）\
+    >ㅤㅤㅤㅤ **deleteCount** 表示此次删除的 Cookie 数量
 
-- ### 2. 二合一账号添加或者更新接口（Wskey + Cookie）
+- ### 3. 统计账号数量
 
-  - 请求路径：`addOrUpdateAccount`
-  - 请求方法：`post`
-  - 请求参数
+  - 请求路径：`count`
+  - 请求方法：`GET`
 
-    |  参数名  | 参数说明 | 备注 |
-    | :-----: | :----: | ----- |
-    |  ptPin  | pt_pin | 不能为空 |
-    |  ptKey  | pt_key | 可以为空,如果为空则不更新 |
-    |  wsKey  | ws_key | 不能为空 |
-    | remarks |  备注   | 可以为空 默认为`ptPin`的值 |
-
-  - 响应参数
-
-    | 参数名 | 参数说明 | 备注 |
-    | :---: | :-----: | :-: |
-
-  - 响应数据
+  - 响应数据示例：
 
     ```json
     {
-      "data": null,
-      "code": 1,
-      "msg":"success"
+        msg: "",
+        code: 1,
+        data: {
+            cookieCount: 1,
+            accountCount: 1
+        }
     }
-   ```
+    ```
+    > [!NOTE|label:参数说明]
+    > `msg:`：结果消息\
+    > `code`：业务代码中的状态码\
+    > `data`：**cookieCount** 表示 Cookie 数量（正整数）\
+    >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
+
+***
+
+## 三、用户自定义接口
+
+> [!NOTE|label:使用方法]
+> 将您的 **Api** 脚本以 `extra_server.js` 命名并存放在 **config** 目录下，重启面板后生效
+
+- 可以参考下方的简单示例
+    
+    <div style='color: var(--themeColor);font-style: italic;'>
+    <details>
+
+    <summary>点击此处展开代码 👈</summary>
+
+    ```javascript
+    var path = require('path');
+    var fs = require('fs');
+
+    var rootPath = process.env.JD_DIR;
+    // 到家果园日志文件夹
+    var jddjFruitLogDir = path.join(rootPath, 'log/jddj_fruit/');
+
+    /**
+     * 获取文件内容
+     * @param fileName 文件路径
+     * @returns {string}
+     */
+     function getFileContentByName(fileName) {
+      if (fs.existsSync(fileName)) {
+        return fs.readFileSync(fileName, 'utf8');
+      }
+      return '';
+    }
+
+    /**
+     * 获取目录中最后修改的文件的路径
+     * @param dir 目录路径
+     * @returns {string} 最新文件路径
+     */
+    function getLastModifyFilePath(dir) {
+      var filePath = '';
+
+      if (fs.existsSync(dir)) {
+        var lastmtime = 0;
+
+        var arr = fs.readdirSync(dir);
+
+        arr.forEach(function (item) {
+          var fullpath = path.join(dir, item);
+          var stats = fs.statSync(fullpath);
+          if (stats.isFile()) {
+            if (stats.mtimeMs >= lastmtime) {
+              filePath = fullpath;
+            }
+          }
+        });
+      }
+      return filePath;
+    }
+
+    // 获取到家果园互助码列表
+    function getJddjFruitCodes() {
+      const lastLogPath = getLastModifyFilePath(jddjFruitLogDir);
+      const lastLogContent = getFileContentByName(lastLogPath);
+      const lastLogContentArr = lastLogContent.split('\n');
+      const shareCodeLineArr = lastLogContentArr.filter(item => item.match(/到家果园互助码:JD_/g));
+      console.log(shareCodeLineArr);
+      const shareCodeStr = shareCodeLineArr[0] || '';
+      const shareCodeArr = shareCodeStr.replace(/到家果园互助码:/, '').split(',').filter(code => code.includes('JD_'));
+      return shareCodeArr;
+    }
+
+    // 生成到家果园互助码文本
+    function createJddjFruitCodeTxt(page, size) {
+      const shareCodeArr = getJddjFruitCodes();
+      if (shareCodeArr.length > size * (page -1)) {
+        const filtered = shareCodeArr.filter((code, index) => index + 1 > size * (page - 1) && index + 1 <= size * page);
+        return filtered.join(',');
+      }
+      return '';
+    }
+
+    function diyServer(app) {
+      /**
+       * 获取到家果园互助码
+       */
+      app.get('/api/sharecode/jddj_fruit', function(req, res) {
+        const page = req.query.page || '1';
+        const size = req.query.size || '5';
+        const content = createJddjFruitCodeTxt(Number(page), Number(size));
+        console.log(`到家果园互助码: ${content}`);
+        res.setHeader("Content-Type", "text/plain");
+        res.send(content);
+      });
+    }
+    
+    module.exports = diyServer;
+    ```
+
+    </details>
+    </div>
