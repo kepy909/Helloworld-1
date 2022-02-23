@@ -80,9 +80,9 @@
 
       ```json
       {
-        msg: "success",
         code: 1,
-        data: 1
+        data: 1,
+        msg: "success"
       }
       ```
       > [!NOTE|label:参数说明]
@@ -97,23 +97,23 @@
 
     - 请求参数
 
-      |  参数名  | 参数说明 | 备注 |
-      | :-----: | :----: | :----: |
-      |  ptPin  | pt_pin | 不能为空 |
-      |  ptKey  | pt_key | 可以为空，如果为空则不更新 |
-      |  wsKey  | ws_key | 不能为空 |
-      | remarks |  备注   | 可以为空，默认为`ptPin`的值 |
+      |  参数名  |  参数说明  |   备注   |
+      | :-----: | :-------: | :-----: |
+      |  ptPin  | pt_pin的值 | 不能为空 |
+      |  ptKey  | pt_key的值 | 可以为空，如果为空则不更新 |
+      |  wsKey  | ws_key的值 | 不能为空 |
+      | remarks |  备注内容   | 可以为空，默认为`ptPin`的值 |
 
     - 响应数据示例
 
       ```json
       {
-          msg: "",
           code: 1,
           data: {
               cookieCount: 1,
               accountCount: 1
-          }
+          },
+          msg: ""
       }
       ```
       > [!NOTE|label:参数说明]
@@ -128,21 +128,21 @@
   - 请求方法：`POST`
   - 请求参数：
 
-    |  参数名  | 参数说明 | 备注 |
-    | :-----: | :----: | :----: |
-    | ptPins  |  数组  | 表示需要删除从CK pt_pin |
+    |  参数名  |  参数说明  |  备注  |
+    | :-----: | :-------: | :---: |
+    | ptPins  | 账号ID数组 | 账号ID是配置文件中的Cookie序号，例`["1","2"]` |
 
   - 响应数据示例：
 
     ```json
     {
-        msg: "",
         code: 1,
         data: {
             cookieCount: 1,
             accountCount: 1,
             deleteCount: 1
-        }
+        },
+        msg: ""
     }
     ```
     > [!NOTE|label:参数说明]
@@ -161,12 +161,12 @@
 
     ```json
     {
-        msg: "",
         code: 1,
         data: {
-            cookieCount: 1,
-            accountCount: 1
-        }
+            "cookieCount": 1,
+            "accountCount": 1
+        },
+        msg: ""
     }
     ```
     > [!NOTE|label:参数说明]
@@ -182,7 +182,7 @@
 > [!NOTE|label:使用方法]
 > 将您的 **Api** 脚本以 `extra_server.js` 命名并存放在 **config** 目录下，重启面板后生效
 
-- 可以参考下方的简单示例
+  - 可以参考下方的简单示例
     
     <div style='color: var(--themeColor);font-style: italic;'>
     <details>
