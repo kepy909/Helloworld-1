@@ -10,9 +10,12 @@
   - 需要授权的 API ，必须在请求头中使用 `api-token` 字段提供 `openApiToken`的值
 
     - 获取 `openApiToken` 的方法
+
       ```bash
-      taskctl panel info | grep openApiToken
+      taskctl panel info | grep ApiToken
       ```
+      > [!ATTENTION]
+      > 最新版本已将 `cookieApiToken` 更名为 `openApiToken`，如仍显示旧版名称则需要在控制面板修改登录认证信息以重置此Token
 
 - ### 1. 支持的请求方法
 
@@ -45,9 +48,6 @@
   |      `0`     | fail           | 请求错误 |
   |      `1`     | success        | 请求成功 |
   | `403`/`4403` | openApi 认证失败 |        |
-
-  > [!ATTENTION]
-  > 注意新版本已将 `cookieApiToken` 更名为 `openApiToken`，如仍显示旧版名称请及时修改面板登录密码重置此Token
 
 - ### 4. 通用返回内容
 
