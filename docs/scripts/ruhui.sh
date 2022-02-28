@@ -1,17 +1,17 @@
 #!/bin/bash
 ## 一键入会领豆 - 辅助工具脚本
-## Version: 1.0
+## Version: 1.1
 ## Author: SuperManito
 ## Modified: 2022-02-28
 
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 用 户 定 义 区 域 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ #
 
 ## ❖ 定义最低入会豆数变量（低于这个数量的店铺则不会入会）
-MinimumBeans=10
+MinimumBeans="10"
 
 ## ❖ 是否推送通知
 # 默认关闭，如想启用请修改为 "True"
-SendNotify=False
+SendNotify="False"
 
 ####################################################################
 
@@ -115,7 +115,7 @@ function Main() {
     ChangeEnv
 
     ## 判定是否推送通知
-    if [[ ${SendNotify} == Fasle ]]; then
+    if [[ ${SendNotify} == "False" ]]; then
         local NotifyParameters=" -m"
     else
         local NotifyParameters=""
