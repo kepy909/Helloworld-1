@@ -81,7 +81,7 @@ function Main() {
 
         ## 传入的是数字ID
         else
-            echo "${InputContent}" | grep -Eq "[a-zA-Z\.;:/\!#$^*|\-_=\+]|\(|\)|\[|\]|\{|\}"
+            echo "${InputContent}" | grep -Eq "[a-zA-Z\.\<\>;:/\!#$^*|\-_=\+]|\(|\)|\[|\]|\{|\}"
             if [ $? -eq 0 ]; then
                 echo -e "\n$ERROR 传入参数的格式不正确！\n"
                 exit
