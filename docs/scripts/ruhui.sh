@@ -32,7 +32,7 @@ RemoteFileShopID=$RemoteTargetDir/shopid.txt
 
 ## 使用帮助
 function Help() {
-    if  [ -x /usr/local/bin/rh ]; then
+    if [ -x /usr/local/bin/rh ]; then
         echo -e "\n${GREEN}使用方法${PLAIN}：在 ${BLUE}rh${PLAIN} 后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 关于${BLUE}shopId${PLAIN} ，每次运行仅支持入会单个店铺\n"
     else
         echo -e "\n${GREEN}使用方法${PLAIN}：使用 ${BLUE}bash${PLAIN} 执行此脚本并在后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 关于${BLUE}shopId${PLAIN} ，每次运行仅支持入会单个店铺\n"
@@ -65,8 +65,10 @@ function Main() {
                     local SHOP_NAME=$(echo "${GET_CONTENT}" | jq '.["shopName"]' | sed "s/[\"\']//g")
                     SHOP_ID=$(echo "${GET_CONTENT}" | jq '.["shopId"]')
 
-                    echo -e "\n店铺名称：${SHOP_NAME}\n店铺 ID ：${SHOP_ID}\n店铺链接：https://shop.m.jd.com/?venderId=${VENDER_ID}&shopId=${SHOP_ID}"
-                    echo -e "\n$SUCCESS 获取成功"
+                    if [[ ${SHOP_ID} ]]; then
+                        echo -e "\n店铺名称：${SHOP_NAME}\n店铺 ID ：${SHOP_ID}\n店铺链接：https://shop.m.jd.com/?venderId=${VENDER_ID}&shopId=${SHOP_ID}"
+                        echo -e "\n$SUCCESS 获取成功"
+                    fi
                 else
                     echo -e "\n$ERROR 传入的店铺链接格式有误！"
                     echo -e "\n$TIPS 至少需要关于 ${BLUE}shopId${PLAIN} 和 ${BLUE}venderId${PLAIN} 的其中任意一个参数和对应参数值！\n"
