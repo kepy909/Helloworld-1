@@ -184,7 +184,7 @@
 
   - 可以参考下方的简单示例
     
-    <div style='color: var(--themeColor);font-style: italic;'>
+    <div style='color: var(--themeColor);'>
     <details>
 
     <summary>点击此处展开代码 👈</summary>
