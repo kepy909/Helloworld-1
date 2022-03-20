@@ -27,7 +27,7 @@ LocalTargetDir=$OwnDir/curtinlv_JD-Script/OpenCard
 LocalTargetScript=$LocalTargetDir/jd_OpenCard.py
 LocalFileShopID=$LocalTargetDir/shopid.txt
 RemoteTargetDir=$ScriptsDir
-RemoteTargetScript="https://raw.fastgit.org/curtinlv/JD-Script/main/OpenCard/jd_OpenCard.py"
+RemoteTargetScript="https://cdn.jsdelivr.net/gh/curtinlv/JD-Script@main/OpenCard/jd_OpenCard.py"
 RemoteFileShopID=$RemoteTargetDir/shopid.txt
 
 ## 使用帮助

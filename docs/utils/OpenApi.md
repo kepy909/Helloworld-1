@@ -175,6 +175,35 @@
     > `data`：**cookieCount** 表示 Cookie 数量（正整数）\
     >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
 
+- ### 4. 修改账号排序
+
+  - 请求路径：`account/sort`
+  - 请求方法：`POST`
+  - 请求参数：
+
+    |  参数名  |      参数说明       |
+    | :-----: | :----------------: |
+    |  ptPin  |      pt_pin的值     |
+    |  sort   | 新的账号序号（正整数） |
+
+  - 响应数据示例：
+
+    ```json
+    {
+        code: 1,
+        data: {
+            "cookieCount": 1,
+            "accountCount": 1
+        },
+        msg: ""
+    }
+    ```
+    > [!NOTE|label:参数说明]
+    > `msg:`：结果消息\
+    > `code`：业务代码中的状态码\
+    > `data`：**cookieCount** 表示 Cookie 数量（正整数）\
+    >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
+
 ***
 
 ## 三、用户自定义接口
