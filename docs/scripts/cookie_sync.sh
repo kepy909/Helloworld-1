@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Author: SuperManito
-## Modified: 2021-12-17
-## Cron： 35 1,9,17 * * * bash cookie_sync.sh > sync.log
+## Modified: 2022-03-26
+## Cron： 15 1,9,17 * * * bash cookie_sync.sh > sync.log
 
 ## 本脚本用于在ip被拉黑无法通过wskey更新ck的情况下使用，一般停几天就白回去了
 ## 需要自备一台没被拉黑ip的正常主机并且已部署容器（即执行此脚本的宿主机）
@@ -52,19 +52,16 @@ for ((i = 1; i <= ${#pt_pin_array[@]}; i++)); do
     ## 转义 pt_pin 中的 UrlEncode 输出中文
     EscapePin=$(printf $(echo ${pt_pin_array[$Num]} | perl -pe "s|%|\\\x|g;"))
 
-    ## 账号序号
-    CookieNum=$(grep -E "^Cookie.*pt_pin=${FormatPin}" $LocalConf | grep -o "Cookie.*=[\"\']" | sed "s/Cookie//g; s/[=\"\']//g;")
-
     ## 远程包含 pt_pin 的信息
     OldContent=$(ssh -o "StrictHostKeyChecking no" -T ${HostName} "source ${ShellRC} && grep -E "pt_pin=${FormatPin}" $HostConf")
 
     ## 本地的 py_key
-    PtKeyLatest=$(grep -E "^Cookie.*pt_pin=${FormatPin}" $LocalConf | awk -F "[\"\']" '{print$2}' | sed "s/;/\n/g" | grep pt_key | awk -F '=' '{print$2}')
+    PtKeyLatest=$(grep -E "^Cookie.*pt_pin=${FormatPin}" $LocalConf | awk -F "[\"\']" '{print$2}' | perl -pe "{s|.*pt_key=([^; ]+)(?=;?).*|\1|}")
     ## 本地的 更新时间
     UpdateDateLatest=$(grep "\#.*上次更新：" $LocalConf | grep "${FormatPin}" | head -1 | perl -pe "{s|pt_pin=.*;||g; s|.*上次更新：||g; s|备注：.*||g; s|[ ]*$||g; s| |\\\ |g;}")
 
     ## 远程的 py_key
-    PtKeyOld=$(echo ${OldContent} | grep -E "^Cookie.*pt_pin=" | awk -F "[\"\']" '{print$2}' | sed "s/;/\n/g" | grep pt_key | awk -F '=' '{print$2}')
+    PtKeyOld=$(echo ${OldContent} | grep -E "^Cookie.*pt_pin=" | awk -F "[\"\']" '{print$2}' | perl -pe "{s|.*pt_key=([^; ]+)(?=;?).*|\1|}")
     ## 远程的 更新时间
     UpdateDateOld=$(echo ${OldContent} | grep "\#.*上次更新：" | head -1 | perl -pe "{s|pt_pin=.*;||g; s|.*上次更新：||g; s|备注：.*||g; s|[ ]*$||g; s| |\\\ |g;}")
 
