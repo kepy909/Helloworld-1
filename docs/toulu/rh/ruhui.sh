@@ -1,8 +1,8 @@
 #!/bin/bash
 ## 一键入会领豆 - 辅助工具脚本
-## Version: 2.0
+## Version: 2.1
 ## Author: SuperManito
-## Modified: 2022-03-23
+## Modified: 2022-04-07
 
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 用 户 定 义 区 域 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ #
 
@@ -19,9 +19,8 @@ else
 fi
 
 ## 变量
-LocalTargetDir=$OwnDir/SuperManito_scripts/tools
+LocalTargetDir=$OwnDir/SuperManito_touluyyds/tools
 LocalTargetScript=$LocalTargetDir/jd_OpenCard.js
-RemoteTargetScript="https://gitee.com/SuperManito/scripts/raw/master/tools/jd_OpenCard.js"
 
 ## 使用帮助
 function Help() {
@@ -108,10 +107,10 @@ function Main() {
     ChangeEnv
 
     ## 判断执行模式（如果已拉取own仓库就执行本地脚本，否则远程执行脚本）
-    if [ -f $LocalTargetScript ]; then
+    if [ -s $LocalTargetScript ]; then
         bash -c "$TaskCmd $LocalTargetScript now -m -r"
     else
-        bash -c "$TaskCmd $RemoteTargetScript now -m -r"
+        echo -e "\n$ERROR 开卡脚本不存在，请先拉取或更新仓库！\n" && exit
     fi
 
     echo -e "\n$COMPLETE 执行结束\n"
