@@ -3,10 +3,25 @@
 
 ## 工具脚本库
 
-    ```bash
-    task repo https://gitee.com/SuperManito/scripts.git master
-    ```
-    > 主要是一些工具类脚本，面向实时线报，建议关闭定时任务
+  ```bash
+  task repo https://gitee.com/SuperManito/scripts.git master
+  ```
+  > 主要是一些工具类脚本，面向实时线报，建议关闭定时任务
+
+## 屏蔽账号（超级无线）
+
+  ```bash
+  case $1 in
+  ## 通用
+  jd_lzclient | jd_wxShopFollowActivity | jd_dadoudou | jd_share | m_jd_wx_luckDraw | m_jd_wx_collectCard | m_jd_wx_addCart)
+    TempBlockCookie="" ## 屏蔽黑号
+    ;;
+  ## 加购建议根据情况自定义
+  jd_wxCollectionActivity | m_jd_wx_addCart)
+    TempBlockCookie="" ## 加购有礼屏蔽黑号和不跑的号
+    ;;
+  esac
+  ```
 
 ***
 
