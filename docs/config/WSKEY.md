@@ -41,18 +41,18 @@
     > 控制当使用 WSKEY 更新 Cookie 失败后是否推送通知提醒，以用于快速处理失效的 WSKEY，默认不推送，如想要接收推送通知提醒请赋值为 `true`
 
 
-## 抓取方法
+## 抓包获取方式
 
   - :fa-brands fa-apple: iOS/iPadOS
 
     > 安装：从 :fa-brands fa-app-store-ios: App Store 下载 [Stream](https://apps.apple.com/cn/app/stream/id1312141691) ，然后打开 Stream - HTTPS抓包 - 根据提示安装证书并信任\
-    > 抓包：在 Stream 主界面点击**开始抓包**，打开 JD 主 APP（如果后台已有则需要退出并重新打开一个新的），进入后点击我的，然后返回 Stream 点抓包历史 - 按域名 - api.m.jd.com \
+    > 抓包：在 Stream 主界面点击开始抓包，打开 JD 主 APP 并从底栏中点击我的（如果后台已有则需要退出并重新打开一个新的），然后返回 Stream - 抓包历史 - 按域名 - `api.m.jd.com` \
     > 方法：从列出来的请求列表中点击任意一个请求进入抓包详情界面进行查看，在请求（顶栏） - 请求头部 - 内容中找到 `Cookies:` ，在其中寻找 wskey\
     > ㅤㅤㅤ 一般 Cookies 内容的第一行就是，wskey 不是所有请求里都有如果没有就换一个继续找
   
   - :fa-brands fa-android: Android
 
-    > 通过小黄鸟 HttpCanary App 抓包，方式与上方苹果设备类似，不过限制较多门槛较高，建议使用下方教程中的 AnyProxy 协助抓
+    > 建议通过 HttpCanary 小黄鸟 App 进行抓包，方式与上方苹果设备类似，不过限制较多导致门槛较高，建议使用下方教程中的 AnyProxy 协助抓取
 
 ## 配置方法
 
