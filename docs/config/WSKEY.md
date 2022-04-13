@@ -24,14 +24,31 @@
   > [!ATTENTION]
   > 应合理规划该脚本的定时，部分脚本执行时间过长可能导致ck在执行期间过期失效，应在这类脚本执行前进行更新，尤其号多者
 
+- 功能设置
+
+  - 更新账号推送通知功能
+
+    ```bash
+    EnableCookieUpdateNotify=""
+    ```
+    > 控制当使用 WSKEY 更新 Cookie 后是否推送更新结果内容，默认不推送，如想要接收推送通知提醒请赋值为 `true`
+
+
+  - 更新账号异常告警功能
+
+    ```bash
+    EnableCookieUpdateFailureNotify=""
+    ```
+    > 控制当使用 WSKEY 更新 Cookie 失败后是否推送通知提醒，以用于快速处理失效的 WSKEY，默认不推送，如想要接收推送通知提醒请赋值为 `true`
+
+
 ## 抓取方法
 
   - :fa-brands fa-apple: iOS/iPadOS
 
-    > 从 Apple Store 下载 Stream App ，然后打开 Stream App - HTTPS抓包 - 根据提示安装证书并信任\
-    > 然后开始抓包，后台关闭京东APP重新打开一个新的，进入后点击我的，然后返回 Stream App\
-    > 点抓包历史 - 按域名 - api.m.jd.com 的请求里面找 Cookies 中的 wskey 值，Cookies 第一行就是\
-    > 不是所有请求里都有没有就换一个继续找
+    > 安装：从 :fa-brands fa-app-store-ios: Apple Store 下载 [Stream](https://apps.apple.com/cn/app/stream/id1312141691) ，然后打开 Stream - HTTPS抓包 - 根据提示安装证书并信任\
+    > 抓包：在 Stream 主界面点击**开始抓包**，打开 JD 主 APP（如果后台已有则需要退出并重新打开一个新的），进入后点击我的，然后返回 Stream 点抓包历史 - 按域名 - api.m.jd.com \
+    > 从列出来的请求列表中点击任意一个请求进入抓包详情界面进行查看，在请求（顶栏） - 请求头部 - 内容中找到 `Cookies:` ，在其中寻找 wskey ，一般 Cookies 内容的第一行就是，wskey 不是所有请求里都有如果没有就换一个继续找
   
   - :fa-brands fa-android: Android
 
@@ -172,6 +189,6 @@
 
     > 打开 [http://\<ip\>:8002](http://<ip>:8002 ':disabled') 进入 AnyProxy 面板查看关于 `api.m.jd.com` 域名链接特别长的 **POST** 请求，`wskey`会出现在 **Cookies** 中
 
-    > 抓到后联系对方关闭代理即可，证书删不删无所谓，部分安卓手机可能会出现关于安装第三方证书的网络警告
+    > 抓到后联系对方关闭代理即可，证书删不删无所谓实际上没有任何影响（部分安卓手机可能会出现关于安装第三方证书的网络警告），如果短期内仍有使用需求的话则建议保留
 
-    ?> 面板有内容说明代理连接正常，如果请求中没有 `Header` 内容或者客户端断网说明证书安装异常，已知某为手机容易出现APP断网的情况原因暂时未知
+    ?> AnyProxy 面板有内容说明代理连接正常，如果请求中没有 `Header` 内容或者客户端断网说明证书安装异常，已知某为手机容易出现APP断网的情况原因暂时未知...
