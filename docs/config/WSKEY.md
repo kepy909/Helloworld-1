@@ -45,9 +45,10 @@
 
   - :fa-brands fa-apple: iOS/iPadOS
 
-    > 安装：从 :fa-brands fa-app-store-ios: Apple Store 下载 [Stream](https://apps.apple.com/cn/app/stream/id1312141691) ，然后打开 Stream - HTTPS抓包 - 根据提示安装证书并信任\
+    > 安装：从 :fa-brands fa-app-store-ios: App Store 下载 [Stream](https://apps.apple.com/cn/app/stream/id1312141691) ，然后打开 Stream - HTTPS抓包 - 根据提示安装证书并信任\
     > 抓包：在 Stream 主界面点击**开始抓包**，打开 JD 主 APP（如果后台已有则需要退出并重新打开一个新的），进入后点击我的，然后返回 Stream 点抓包历史 - 按域名 - api.m.jd.com \
-    > 从列出来的请求列表中点击任意一个请求进入抓包详情界面进行查看，在请求（顶栏） - 请求头部 - 内容中找到 `Cookies:` ，在其中寻找 wskey ，一般 Cookies 内容的第一行就是，wskey 不是所有请求里都有如果没有就换一个继续找
+    > 方法：从列出来的请求列表中点击任意一个请求进入抓包详情界面进行查看，在请求（顶栏） - 请求头部 - 内容中找到 `Cookies:` ，在其中寻找 wskey\
+    > ㅤㅤㅤ 一般 Cookies 内容的第一行就是，wskey 不是所有请求里都有如果没有就换一个继续找
   
   - :fa-brands fa-android: Android
 
