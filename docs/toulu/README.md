@@ -12,15 +12,20 @@
   ```bash
   case $1 in
   ## 通用
-  jd_lzclient | jd_wxShopFollowActivity | jd_dadoudou | jd_share | m_jd_wx_luckDraw | m_jd_wx_collectCard)
+  jd_lzclient | jd_wxShopFollowActivity | jd_dadoudou | jd_share | m_jd_wx_collectCard)
     TempBlockCookie="" ## 屏蔽黑号
     ;;
   ## 加购建议根据情况自定义
-  jd_wxCollectionActivity | m_jd_wx_addCart)
-    TempBlockCookie="" ## 加购有礼屏蔽黑号和不跑的号
+  jd_wxCollectionActivity)
+    TempBlockCookie="" ## lzkj 加购有礼屏蔽黑号和不跑的号
+    ;;
+  m_jd_wx_addCart)
+    TempBlockCookie="" ## cjhy 加购有礼屏蔽不跑的号
     ;;
   esac
   ```
+  > 一般 lzkj 域名的活动会出现黑号并且都是互通的，但 cjhy 域名的活动一般不会出现火爆
+
 ## M系列脚本控制变量
 
   - 运行账号
