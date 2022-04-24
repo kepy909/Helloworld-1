@@ -138,8 +138,8 @@
     ?> 一般情况下配置账号屏蔽变量即可无需自定义分组配置，不屏蔽黑号则会占位置导致成员未满无法瓜分奖励
 
     > [!NOTE|label:关于变量名称]
-    > 变量中含有 `LZKJ` 表示关于活动域名 [https://lzkjdz-isv.isvjcloud.com](https://lzkjdz-isv.isvjcloud.com ':disabled') 的组队配置\
-    > 变量中含有 `CJHY` 表示关于活动域名 [https://cjhydz-isv.isvjcloud.com](https://cjhydz-isv.isvjcloud.com ':disabled') 的组队配置
+    > 变量中含有 `LZKJ` 表示关于活动域名为 [https://lzkjdz-isv.isvjcloud.com](https://lzkjdz-isv.isvjcloud.com ':disabled') 的组队配置\
+    > 变量中含有 `CJHY` 表示关于活动域名为 [https://cjhydz-isv.isvjcloud.com](https://cjhydz-isv.isvjcloud.com ':disabled') 的组队配置
 
     - 账号屏蔽（重要）
 
@@ -147,7 +147,7 @@
       LZKJ_ZD_BLOCK=""
       CJHY_ZD_BLOCK=""
       ```
-      > 此变量仅在自动分组时生效，需填账号序号，多个用**空格**分开
+      > 此变量仅在自动分组时生效，需填账号序号，多个用**空格**分开，注意黑号（提示去买买买）仅针对 lzkj 域名的活动
 
     - 自定义组队配置（可选）
 
@@ -168,7 +168,7 @@
         LZKJ_ZD_TEAM<num>=""
         CJHY_ZD_TEAM<num>=""
         ```
-        > `<num>` 为队伍数量（正整数），代表对应分组模式，认真思考并理解下面的示例配置，注意黑号（提示去买买买）仅针对 lzkj 域名的活动
+        > `<num>` 为队伍数量（正整数），代表对应分组模式，认真思考并理解下面的示例配置
 
         - 示例
 
@@ -188,7 +188,6 @@
     - 检测活动火爆功能（可选）
 
       > 检测脚本运行记录，若存在火爆则尝试重新执行\
-      > 仅限 [https://cjhydz-isv.isvjcloud.com](https://cjhydz-isv.isvjcloud.com ':disabled') 域名的活动\
       > 还支持检测活动是否结束、活动队伍已满等情况并自动跳出
 
       ```bash
