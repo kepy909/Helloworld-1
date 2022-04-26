@@ -7,7 +7,7 @@
   - API认证统一使用 Token 认证
   - 使用 HTTP Status Code 标识状态
   - 数据返回格式统一使用 JSON
-  - 需要授权的 API ，必须在请求头中使用 `api-token` 字段提供 `openApiToken`的值
+  - 需要授权的 API ，需要在请求头或请求地址中使用 `api-token` 字段并提供 `openApiToken`的值
 
     - 获取 `openApiToken` 的方法
 
@@ -178,6 +178,9 @@
 ***
 
 ## 三、用户自定义接口
+
+> [!NOTE|label:接口规范]
+> 请求路径需为 `openApi` 或 `api/extra` 作为开头，后者无需验证Token
 
 > [!NOTE|label:使用方法]
 > 将您的 **Api** 脚本以 `extra_server.js` 命名并存放在 **config** 目录下，重启面板后生效
