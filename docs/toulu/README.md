@@ -237,7 +237,7 @@
   - ### 定时配置
 
     ```cron
-    10 4,5,6 * * * task /jd/own/SuperManito_touluyyds/tools/jd_syj.js now
+    10 6 * * * task /jd/own/SuperManito_touluyyds/tools/jd_syj.js now -l 2
     ```
     > 建议自定义定时不要都挤一个点，默认每天两次兑换喜豆（jd_bean_xibean.js）的定时为**07**时和**23**时
 
