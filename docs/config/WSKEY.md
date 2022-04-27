@@ -150,7 +150,7 @@
     ```bash
     anyproxy --intercept
     ```
-    > `Ctrl + C` 停止运行，由于[解析了所有 https 请求](http://anyproxy.io/cn/#%E4%BB%A3%E7%90%86https)，存在服务报错中断的情况，同时设备连接代理后网络会变慢请耐心等待加载完毕
+    > `Ctrl + C` 停止运行，由于代理了所有 [HTTPS 请求](http://anyproxy.io/cn/#%E4%BB%A3%E7%90%86https)，可能存在服务报错中断的情况，同时设备连接代理后网络会变慢请耐心等待加载完毕
 
 - ### 使用方法 <!-- {docsify-ignore} -->
 
