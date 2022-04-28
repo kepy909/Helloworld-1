@@ -90,7 +90,7 @@
       > `code`：业务代码中的状态码\
       > `data`：表示 Cookie 数量（正整数）
 
-  - #### WSKEY & Cookie二合一
+  - #### WSKEY
 
     - 请求路径：`addOrUpdateAccount`
     - 请求方法：`POST`
