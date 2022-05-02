@@ -88,7 +88,7 @@
       > [!NOTE|label:参数说明]
       > `msg:`：结果消息\
       > `code`：业务代码中的状态码\
-      > `data`：表示 Cookie 数量（正整数）
+      > `data`：表示提交后服务器中的现存 Cookie 数量（正整数）
 
   - #### WSKEY
 
@@ -172,7 +172,7 @@
     > [!NOTE|label:参数说明]
     > `msg:`：结果消息\
     > `code`：业务代码中的状态码\
-    > `data`：**cookieCount** 表示提交后服务器中的现存 Cookie 数量（正整数）\
+    > `data`：**cookieCount** 表示服务器当前现存 Cookie 数量（正整数）\
     >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
 
 ***
