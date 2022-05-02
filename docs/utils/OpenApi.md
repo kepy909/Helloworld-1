@@ -119,7 +119,7 @@
       > [!NOTE|label:参数说明]
       > `msg:`：结果消息\
       > `code`：业务代码中的状态码\
-      > `data`：**cookieCount** 表示 Cookie 数量（正整数）\
+      > `data`：**cookieCount** 表示提交后服务器中的现存 Cookie 数量（正整数）\
       >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
 
 - ### 2. 删除账号
@@ -148,7 +148,7 @@
     > [!NOTE|label:参数说明]
     > `msg:`：结果消息\
     > `code`：业务代码中的状态码\
-    > `data`：**cookieCount** 表示 Cookie 数量（正整数）\
+    > `data`：**cookieCount** 表示提交后服务器中的现存 Cookie 数量（正整数）\
     >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）\
     >ㅤㅤㅤㅤ **deleteCount** 表示此次删除的 Cookie 数量
 
@@ -172,7 +172,7 @@
     > [!NOTE|label:参数说明]
     > `msg:`：结果消息\
     > `code`：业务代码中的状态码\
-    > `data`：**cookieCount** 表示 Cookie 数量（正整数）\
+    > `data`：**cookieCount** 表示提交后服务器中的现存 Cookie 数量（正整数）\
     >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
 
 ***
