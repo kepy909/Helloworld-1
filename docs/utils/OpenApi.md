@@ -7,7 +7,7 @@
   - API认证统一使用 Token 认证
   - 使用 HTTP Status Code 标识状态
   - 数据返回格式统一使用 JSON
-  - 需要授权的 API ，需要在请求头或请求地址中使用 `api-token` 字段并提供 `openApiToken`的值
+  - 需要授权的 API ，需要在请求头或请求地址中使用 `api-token` 字段并提供 `openApiToken` 的值
 
     - 获取 `openApiToken` 的方法
 
@@ -88,7 +88,7 @@
       > [!NOTE|label:参数说明]
       > `msg:`：结果消息\
       > `code`：业务代码中的状态码\
-      > `data`：表示提交后服务器中的现存 Cookie 数量（正整数）
+      > `data`：表示提交后服务器中现存的 Cookie 数量（正整数）
 
   - #### WSKEY
 
@@ -119,8 +119,8 @@
       > [!NOTE|label:参数说明]
       > `msg:`：结果消息\
       > `code`：业务代码中的状态码\
-      > `data`：**cookieCount** 表示提交后服务器中的现存 Cookie 数量（正整数）\
-      >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
+      > `data`：**cookieCount** 表示提交后服务器中现存的 Cookie 数量（正整数）\
+      >ㅤㅤㅤㅤ **accountCount** 表示提交后服务器中现存的 wskey 数量（正整数）
 
 - ### 2. 删除账号
 
@@ -148,8 +148,8 @@
     > [!NOTE|label:参数说明]
     > `msg:`：结果消息\
     > `code`：业务代码中的状态码\
-    > `data`：**cookieCount** 表示提交后服务器中的现存 Cookie 数量（正整数）\
-    >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）\
+    > `data`：**cookieCount** 表示提交后服务器中现存的 Cookie 数量（正整数）\
+    >ㅤㅤㅤㅤ **accountCount** 表示提交后服务器中现存的 wskey 数量（正整数）\
     >ㅤㅤㅤㅤ **deleteCount** 表示此次删除的 Cookie 数量
 
 - ### 3. 统计账号数量
@@ -172,8 +172,8 @@
     > [!NOTE|label:参数说明]
     > `msg:`：结果消息\
     > `code`：业务代码中的状态码\
-    > `data`：**cookieCount** 表示服务器当前现存 Cookie 数量（正整数）\
-    >ㅤㅤㅤㅤ **accountCount** 表示 WSKEY 数量（正整数）
+    > `data`：**cookieCount** 表示服务器当前现存的 Cookie 数量（正整数）\
+    >ㅤㅤㅤㅤ **accountCount** 表示服务器当前现存的 wskey 数量（正整数）
 
 ***
 
