@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<title>演示 · 专业版</title>
+<link rel="icon" type="image/x-icon" href="../img/logo.gif" />
+
+<head>
+    <script type="text/javascript" src="../js/element-ui.js"></script>
+    <link rel="stylesheet" href="../css/element-ui.css">
+    <!-- 引入样式与组件库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/openApi-h5-popup-pro.js"></script>
+    <style>
+        /* sweetalert2 模糊背景 */
+        body.swal2-shown>[aria-hidden="true"] {
+            transition: 0.1s filter;
+            filter: blur(10px);
+        }
+
+        .step-title {
+            padding: 0 1em 0 1em;
+        }
+
+        .input-background {
+            background: transparent;
+        }
+
+        .swal2-progress-steps {
+            background: transparent;
+        }
+
+        .center {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<div>
+    <button class="center el-button" onclick="ExtraAPI_Pro()">更多功能</button>
+</div>
+
+</html>

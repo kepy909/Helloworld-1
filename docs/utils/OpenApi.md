@@ -284,67 +284,103 @@
 
 ## 四、内置接口可视化
 
-- ### HTML5 弹出框面板
+- ### HTML5 灵活弹出框
 
-  > 一个基于 [SweetAlert2](https://www.sweetalert2.cn) 定制的交互面板（公开版）
+  > 一个基于 [SweetAlert2](https://www.sweetalert2.cn) 定制的交互面板
 
   > 目前支持查询账号数量、提交账号（二合一接口，可自动识别提交的类型，有格式检测机制）、删除账号总共三个功能
 
-  - 示例
-
-    ```html
-    <!DOCTYPE html>
-    <html>
-    
-    <head>
-      <!-- 引入样式 -->
-      <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    </head>
-    
-    <body>
-      <div>
-        <button class="el-button el-button--primary" onclick="ExtraAPI()">点击此处查看演示</button>
-      </div>
-      <!-- 引入组件库 -->
-      <script type="text/javascript" src="https://unpkg.com/element-ui/lib/index.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-      <script>
-        ...<将源码粘贴至此处，也可以如同上面的方式进行引用>...
-      </script>
-    </body>
-    
-    </html>
-    ```
+  - #### 公开版
 
     <div>
       <button class="el-button el-button--primary" onclick="ExtraAPI()">点击此处查看演示</button>
     </div>
 
-  - 源码
+    - 示例
 
-    <div style='color: var(--themeColor);'>
-    <details>
+      ```html
+      <!DOCTYPE html>
+      <html>
 
-    <summary>点击此处展开 👈</summary>
+      <head>
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+      </head>
 
-    ```javascript
-    /* A Fussion popup of the Extra API (sweetalert2)
-     * Author：SuperManito
-     * Modified: 2022-5-05
-     * Website: https://supermanito.github.io/Helloworld
-     * 2021-2022 (c) Powered by Helloworld
-    */
+      <body>
+        <div>
+          <button class="el-button el-button--primary" onclick="ExtraAPI()">点击此处查看演示</button>
+        </div>
+        <!-- 引入组件库 -->
+        <script type="text/javascript" src="https://unpkg.com/element-ui/lib/index.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script>
+          ...<将源码粘贴至此处，也可以如同上面的方式进行引用>...
+        </script>
+      </body>
 
-    // 用户自定义配置：
-    let api = ""; // 面板地址
-    let apiToken = ""; // 面板接口授权token
-    let Accounts_Maximum = 100; // 预设帐号上限，服务器剩余资源为该预设值减去服务器现存账号数量
-    let Admin_Code = ""; // 管理员操作口令
-    let background_css = "#FFF"; // 自定义弹窗背景(css background 属性)
+      </html>
+      ```
 
-    function ExtraAPI(){Swal.fire({title:"服务器自助管理面板",background:background_css,html:'<div style="font-size: 2em"><button id="countCookies" class="el-button el-button--primary">查询空闲资源</button></br><button style="margin: .2em" id="submitAccount" class="el-button el-button--primary">提交账号</button>&nbsp;&nbsp;<button style="margin: .2em" id="deleteCookie" class="el-button el-button--primary">删除账号</button></div>',showConfirmButton:false,showCloseButton:true,onBeforeOpen:()=>{const content=Swal.getContent();const $=content.querySelector.bind(content);const ClickcountCookies=$("#countCookies");const ClicksubmitAccount=$("#submitAccount");const ClickdeleteCookie=$("#deleteCookie");ClickcountCookies.addEventListener("click",()=>{countCookies()});ClicksubmitAccount.addEventListener("click",()=>{submitAccount()});ClickdeleteCookie.addEventListener("click",()=>{deleteCookie()})},})}function countCookies(){var path="/openApi/count";var myHeaders=new Headers();myHeaders.append("Content-Type","application/json");myHeaders.append("api-token",apiToken);var requestOptions={method:"GET",redirect:"follow",headers:myHeaders,};fetch(api+path,requestOptions).then((response)=>response.json()).then((data)=>{var code=data.code;if(code===1){var free_passengers=Accounts_Maximum-data.data.cookieCount;Swal.fire({type:"info",title:"当前服务器还有 "+free_passengers+" 个车位",background:background_css,showConfirmButton:false,timer:2500,})}else{Swal.fire({type:"error",title:"查询失败",text:JSON.parse(JSON.stringify(data.msg)),background:background_css,showConfirmButton:true,})}}).catch(()=>{connectFailed()})}async function submitAccount(){Swal.mixin({input:"text",background:background_css,showCancelButton:true,cancelButtonText:"取消",progressSteps:["1","2","3"],}).queue([{title:"您的京东用户名",html:"请输入 pt_pin 的值，注意是账号的用户名不是昵称",background:background_css,confirmButtonText:"下一步",input:"text",inputAttributes:{autocapitalize:"off",},showLoaderOnConfirm:true,preConfirm:async(pt_pin)=>{if(pt_pin==""){Swal.showValidationMessage(`用户名不能为空`)}},allowOutsideClick:()=>!Swal.isLoading(),},{title:"您的账号",width:1070,html:"请输入 pt_key 或 wskey 的其中任意一个值，注意登录后手动注销或更改密码会导致其失效",background:background_css,confirmButtonText:"下一步",input:"text",inputAttributes:{autocapitalize:"off",},showLoaderOnConfirm:true,preConfirm:async(key)=>{if(key==""){Swal.showValidationMessage(`账号不能为空`)}else{var key_type=await detectType(key);if(key_type=="unknown"){Swal.showValidationMessage(`账号格式有误，请验证后重试`)}}},allowOutsideClick:()=>!Swal.isLoading(),},{title:"您的备注",html:"请输入您的称谓以用于管理员进行登记（可以不填）",background:background_css,confirmButtonText:"确认提交",confirmButtonColor:"#28a745",input:"text",},]).then(async(result)=>{if(result.value){var content=result.value.toString();var pt_pin=content.split(",")[0];var key=content.split(",")[1];var remarks=content.split(",")[2];if(pt_pin==""){touchWarning()}else{var key_type=await detectType(key);if(key_type!="unknown"){if(key_type=="pt_key"){submitPtKey(key,pt_pin,remarks)}else if(key_type=="wskey"){submitWSKEY(key,pt_pin,remarks)}}}}})}function submitPtKey(key,pt_pin,remarks){var path="/openApi/updateCookie";var myHeaders=new Headers();myHeaders.append("Content-Type","application/json");myHeaders.append("api-token",apiToken);if(RegExp(/\%/).test(pt_pin)==false){pt_pin=encodeURIComponent(pt_pin)}var raw=JSON.stringify({cookie:"pt_key="+key+";pt_pin="+pt_pin+";",userMsg:remarks,});var requestOptions={method:"POST",headers:myHeaders,body:raw,redirect:"follow",};fetch(api+path,requestOptions).then((response)=>response.json()).then((data)=>{var code=data.code;if(code===1){Swal.fire({type:"success",title:"提交成功",text:"已将您的 pt_key 添加至服务器",showConfirmButton:false,background:background_css,timer:2000,})}else{Swal.fire({type:"error",title:"提交失败",text:JSON.parse(JSON.stringify(data.msg)),background:background_css,showConfirmButton:true,})}}).catch(()=>{connectFailed()})}function submitWSKEY(key,pt_pin,remarks){var path="/openApi/addOrUpdateAccount";var myHeaders=new Headers();myHeaders.append("Content-Type","application/json");myHeaders.append("api-token",apiToken);if(RegExp(/\%/).test(pt_pin)==false){pt_pin=encodeURIComponent(pt_pin)}var raw=JSON.stringify({ptPin:pt_pin,wsKey:key,remarks:remarks,});var requestOptions={method:"POST",headers:myHeaders,body:raw,redirect:"follow",};fetch(api+path,requestOptions).then((response)=>response.json()).then((data)=>{var code=data.code;if(code===1){Swal.fire({type:"success",title:"提交成功",text:"已将您的 wskey 添加至服务器",background:background_css,showConfirmButton:false,timer:2000,})}else{Swal.fire({type:"error",title:"提交失败",text:JSON.parse(JSON.stringify(data.msg)),background:background_css,showConfirmButton:true,})}}).catch(()=>{connectFailed()})}function deleteCookie(){Swal.fire({title:"您的京东用户名",text:"请输入 pt_pin 的值，注意不是昵称是用户名",input:"text",background:background_css,confirmButtonText:"下一步",showCancelButton:true,cancelButtonText:"取消",}).then((result)=>{if(result.value){var pt_pin=result.value;Swal.fire({type:"warning",title:"请输入管理员口令",background:background_css,input:"text",inputAttributes:{autocapitalize:"off",},showCancelButton:true,confirmButtonText:"确认删除",confirmButtonColor:"#dc3545",showLoaderOnConfirm:true,cancelButtonText:"取消",preConfirm:(Password)=>{if(Password==Admin_Code){var path="/openApi/cookie/delete";var myHeaders=new Headers();myHeaders.append("Content-Type","application/json");myHeaders.append("api-token",apiToken);if(RegExp(/\%/).test(pt_pin)==false){pt_pin=encodeURIComponent(pt_pin)}var delete_pin=new Array(pt_pin);var raw=JSON.stringify({ptPins:delete_pin,});var requestOptions={method:"POST",headers:myHeaders,body:raw,redirect:"follow",};fetch(api+path,requestOptions).then((response)=>response.json()).then((data)=>{var code=data.code;if(code===1){if(data.data.deleteCount===1){Swal.fire({type:"success",title:"删除成功",background:background_css,showConfirmButton:false,timer:2000,})}else{Swal.fire({type:"error",title:"账号不存在",background:background_css,showConfirmButton:true,})}}else{Swal.fire({type:"error",title:"删除失败",text:"请联系管理员进行处理",background:background_css,showConfirmButton:true,})}}).catch(()=>{connectFailed()})}else{Swal.showValidationMessage(`认证失败`)}},allowOutsideClick:()=>!Swal.isLoading(),})}else if(result.value==""){touchWarning()}})}async function detectType(key){var type="unknown";var judge_ptkey_length=key.length==75||key.length==83;var judge_wskey_length=key.length==96||key.length==118;var judge_key_type=RegExp(/[^A-Za-z0-9-_]/).test(key);var judge_key_format=RegExp(/^AAJ[a-z].*/).test(key)||RegExp(/^app_openAAJ[a-z].*/).test(key);if(judge_key_format==true&&judge_key_type==false){if(judge_ptkey_length==true){type="pt_key"}else if(judge_wskey_length==true){type="wskey"}}return type}function connectFailed(){if(api==""){Swal.fire({type:"error",title:"请先配置关联服务器",background:background_css,showConfirmButton:true,})}else{Swal.fire({type:"error",title:"未能与关联服务器建立连接",text:"请联系管理员进行处理",background:background_css,showConfirmButton:true,})}}function touchWarning(){Swal.fire({type:"warning",title:"请不要乱点",background:background_css,showConfirmButton:true,confirmButtonText:"好的",})}
-    ```
-    > 顶部的变量需要自行配置相关信息
+    - 源码
 
-    </details>
+      <div style='color: var(--themeColor);'>
+      <details>
+
+      <summary>点击此处展开 👈</summary>
+
+      ```javascript
+      /* A Fussion popup of the Extra API (sweetalert2) - 公开版
+       * Author：SuperManito
+       * Modified: 2022-5-05
+       * Website: https://supermanito.github.io/Helloworld
+       * 2021-2022 (c) Powered by Helloworld
+      */
+
+      // 用户自定义配置：
+      let api = ""; // 面板地址
+      let apiToken = ""; // 面板接口授权token
+      let Accounts_Maximum = 100; // 预设帐号上限，服务器剩余资源为该预设值减去服务器现存账号数量
+      let Admin_Code = ""; // 管理员操作口令
+      let background_css = "#FFF"; // 自定义弹窗背景(css background 属性)
+
+      function ExtraAPI(){Swal.fire({title:"服务器自助管理面板",background:background_css,html:'<div style="font-size: 2em"><button id="countCookies" class="el-button el-button--primary">查询空闲资源</button></br><button style="margin: .2em" id="submitAccount" class="el-button el-button--primary">提交账号</button>&nbsp;&nbsp;<button style="margin: .2em" id="deleteCookie" class="el-button el-button--primary">删除账号</button></div>',showConfirmButton:false,showCloseButton:true,onBeforeOpen:()=>{const content=Swal.getContent();const $=content.querySelector.bind(content);const ClickcountCookies=$("#countCookies");const ClicksubmitAccount=$("#submitAccount");const ClickdeleteCookie=$("#deleteCookie");ClickcountCookies.addEventListener("click",()=>{countCookies()});ClicksubmitAccount.addEventListener("click",()=>{submitAccount()});ClickdeleteCookie.addEventListener("click",()=>{deleteCookie()})},})}function countCookies(){var path="/openApi/count";var myHeaders=new Headers();myHeaders.append("Content-Type","application/json");myHeaders.append("api-token",apiToken);var requestOptions={method:"GET",redirect:"follow",headers:myHeaders,};fetch(api+path,requestOptions).then((response)=>response.json()).then((data)=>{var code=data.code;if(code===1){var free_passengers=Accounts_Maximum-data.data.cookieCount;Swal.fire({type:"info",title:"当前服务器还有 "+free_passengers+" 个车位",background:background_css,showConfirmButton:false,timer:2500,})}else{Swal.fire({type:"error",title:"查询失败",text:JSON.parse(JSON.stringify(data.msg)),background:background_css,showConfirmButton:true,})}}).catch(()=>{connectFailed()})}async function submitAccount(){Swal.mixin({input:"text",background:background_css,showCancelButton:true,cancelButtonText:"取消",progressSteps:["1","2","3"],}).queue([{title:"您的京东用户名",html:"请输入 pt_pin 的值，注意是账号的用户名不是昵称",background:background_css,confirmButtonText:"下一步",input:"text",inputAttributes:{autocapitalize:"off",},showLoaderOnConfirm:true,preConfirm:async(pt_pin)=>{if(pt_pin==""){Swal.showValidationMessage(`用户名不能为空`)}},allowOutsideClick:()=>!Swal.isLoading(),},{title:"您的账号",width:1070,html:"请输入 pt_key 或 wskey 的其中任意一个值，注意登录后手动注销或更改密码会导致其失效",background:background_css,confirmButtonText:"下一步",input:"text",inputAttributes:{autocapitalize:"off",},showLoaderOnConfirm:true,preConfirm:async(key)=>{if(key==""){Swal.showValidationMessage(`账号不能为空`)}else{var key_type=await detectType(key);if(key_type=="unknown"){Swal.showValidationMessage(`账号格式有误，请验证后重试`)}}},allowOutsideClick:()=>!Swal.isLoading(),},{title:"您的备注",html:"请输入您的称谓以用于管理员进行登记（可以不填）",background:background_css,confirmButtonText:"确认提交",confirmButtonColor:"#28a745",input:"text",},]).then(async(result)=>{if(result.value){var content=result.value.toString();var pt_pin=content.split(",")[0];var key=content.split(",")[1];var remarks=content.split(",")[2];if(pt_pin==""){touchWarning()}else{var key_type=await detectType(key);if(key_type!="unknown"){if(key_type=="pt_key"){submitPtKey(key,pt_pin,remarks)}else if(key_type=="wskey"){submitWSKEY(key,pt_pin,remarks)}}}}})}function submitPtKey(key,pt_pin,remarks){var path="/openApi/updateCookie";var myHeaders=new Headers();myHeaders.append("Content-Type","application/json");myHeaders.append("api-token",apiToken);if(RegExp(/\%/).test(pt_pin)==false){pt_pin=encodeURIComponent(pt_pin)}var raw=JSON.stringify({cookie:"pt_key="+key+";pt_pin="+pt_pin+";",userMsg:remarks,});var requestOptions={method:"POST",headers:myHeaders,body:raw,redirect:"follow",};fetch(api+path,requestOptions).then((response)=>response.json()).then((data)=>{var code=data.code;if(code===1){Swal.fire({type:"success",title:"提交成功",text:"已将您的 pt_key 添加至服务器",showConfirmButton:false,background:background_css,timer:2000,})}else{Swal.fire({type:"error",title:"提交失败",text:JSON.parse(JSON.stringify(data.msg)),background:background_css,showConfirmButton:true,})}}).catch(()=>{connectFailed()})}function submitWSKEY(key,pt_pin,remarks){var path="/openApi/addOrUpdateAccount";var myHeaders=new Headers();myHeaders.append("Content-Type","application/json");myHeaders.append("api-token",apiToken);if(RegExp(/\%/).test(pt_pin)==false){pt_pin=encodeURIComponent(pt_pin)}var raw=JSON.stringify({ptPin:pt_pin,wsKey:key,remarks:remarks,});var requestOptions={method:"POST",headers:myHeaders,body:raw,redirect:"follow",};fetch(api+path,requestOptions).then((response)=>response.json()).then((data)=>{var code=data.code;if(code===1){Swal.fire({type:"success",title:"提交成功",text:"已将您的 wskey 添加至服务器",background:background_css,showConfirmButton:false,timer:2000,})}else{Swal.fire({type:"error",title:"提交失败",text:JSON.parse(JSON.stringify(data.msg)),background:background_css,showConfirmButton:true,})}}).catch(()=>{connectFailed()})}function deleteCookie(){Swal.fire({title:"您的京东用户名",text:"请输入 pt_pin 的值，注意不是昵称是用户名",input:"text",background:background_css,confirmButtonText:"下一步",showCancelButton:true,cancelButtonText:"取消",}).then((result)=>{if(result.value){var pt_pin=result.value;Swal.fire({type:"warning",title:"请输入管理员口令",background:background_css,input:"text",inputAttributes:{autocapitalize:"off",},showCancelButton:true,confirmButtonText:"确认删除",confirmButtonColor:"#dc3545",showLoaderOnConfirm:true,cancelButtonText:"取消",preConfirm:(Password)=>{if(Password==Admin_Code){var path="/openApi/cookie/delete";var myHeaders=new Headers();myHeaders.append("Content-Type","application/json");myHeaders.append("api-token",apiToken);if(RegExp(/\%/).test(pt_pin)==false){pt_pin=encodeURIComponent(pt_pin)}var delete_pin=new Array(pt_pin);var raw=JSON.stringify({ptPins:delete_pin,});var requestOptions={method:"POST",headers:myHeaders,body:raw,redirect:"follow",};fetch(api+path,requestOptions).then((response)=>response.json()).then((data)=>{var code=data.code;if(code===1){if(data.data.deleteCount===1){Swal.fire({type:"success",title:"删除成功",background:background_css,showConfirmButton:false,timer:2000,})}else{Swal.fire({type:"error",title:"账号不存在",background:background_css,showConfirmButton:true,})}}else{Swal.fire({type:"error",title:"删除失败",text:"请联系管理员进行处理",background:background_css,showConfirmButton:true,})}}).catch(()=>{connectFailed()})}else{Swal.showValidationMessage(`认证失败`)}},allowOutsideClick:()=>!Swal.isLoading(),})}else if(result.value==""){touchWarning()}})}async function detectType(key){var type="unknown";var judge_ptkey_length=key.length==75||key.length==83;var judge_wskey_length=key.length==96||key.length==118;var judge_key_type=RegExp(/[^A-Za-z0-9-_]/).test(key);var judge_key_format=RegExp(/^AAJ[a-z].*/).test(key)||RegExp(/^app_openAAJ[a-z].*/).test(key);if(judge_key_format==true&&judge_key_type==false){if(judge_ptkey_length==true){type="pt_key"}else if(judge_wskey_length==true){type="wskey"}}return type}function connectFailed(){if(api==""){Swal.fire({type:"error",title:"请先配置关联服务器",background:background_css,showConfirmButton:true,})}else{Swal.fire({type:"error",title:"未能与关联服务器建立连接",text:"请联系管理员进行处理",background:background_css,showConfirmButton:true,})}}function touchWarning(){Swal.fire({type:"warning",title:"请不要乱点",background:background_css,showConfirmButton:true,confirmButtonText:"好的",})}
+      ```
+      > 顶部的变量需要自行配置相关信息
+
+      </details>
+      </div>
+
+  - #### 专业版（付费资源）
+
+    <div>
+      <button class="el-button el-button--primary el-button--warning" onclick="javascript:window.open('https://supermanito.github.io/Helloworld/utils/demo_pro.html')">点击此处查看演示</button>
     </div>
+
+    - 功能对比
+
+      | 具体功能 | 公开版 | 专业版 | 专业增强版 |
+      | :-----: | :---: | :---: | :------: |
+      | 查询账号数量 | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 删除账号 | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 管理员身份验证 | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 提交账号（wskey & pt_key 二合一） | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 基于 SweetAlert2 最新版本编写 | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 更精美的UI与动画交互（可定制主题）| <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 同步操作至节点服务器（无上限） | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 提交账号有效性检测 | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 提交账号支持填入Cookie格式 | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 提交账号不需要提供用户名 | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 提交账号展示用户基本信息 | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 有限范围内的技术支持 | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+      | 后续所有更新内容 | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:red;"><i class="fa-solid fa-xmark"></i></span> | <span style="color:green;"><i class="fa-solid fa-check"></i></span> |
+
+    - 定价
+
+      | :fa-solid fa-sack-dollar: | 公开版 | 专业版 | 专业增强版 |
+      | :-----: | :---: | :-------: | :------: |
+      | **定价** |  免费  | `RMB 20` | `RMB 88` |
+      > 如有需要请联系作者进行购买，闲人勿扰
+
+      > [!WARNING|label:为什么要定价？]
+      > 公开版逻辑简单代码仅有300行左右，专业版的代码已上千行，拒绝白嫖！
