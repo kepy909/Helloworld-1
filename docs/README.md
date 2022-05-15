@@ -59,5 +59,5 @@
 
 ## :fa-duotone fa-browser: 控制面板 <!-- {docsify-ignore} -->
 
-![登录页](./img/panel/1.png ':size=950x450')
-![内容页](./img/panel/2.png ':size=950x450')
+![登录页](./img/panel/1.png ':size=640x340')
+![内容页](./img/panel/2.png ':size=640x340')
