@@ -48,7 +48,7 @@ function Get_List() {
     local FileListCK=$ConfigDir/cookie.txt
     if [ -s $FileListCK ]; then
         List=(
-            $(cat $FileListCK | perl -pe "{s|export JD_COOKIE=||g; s|[ #\"\']||g}")
+            $(cat $FileListCK | sed "/^[#/]/d" | perl -pe "{s|Cookie[0-9]{1,3}=||g; s|export JD_COOKIE=||g; s|[ #\"\']||g}")
         )
     else
         echo -e "\n$ERROR 请先将CK写入至 ${BLUE}$ConfigDir/cookie.txt${PLAIN} 文件中，一行一个，支持任意格式，但尽量不要带有特殊符号例如中文汉字\n"
@@ -57,6 +57,7 @@ function Get_List() {
 }
 
 function Main() {
+    local pin key ck
     Check_Panel_Status
     Get_OpenApiToken
     Get_List
@@ -65,22 +66,31 @@ function Main() {
     add)
         echo -e "\n$WORKING 检测到 ${BLUE}${#List[@]}${PLAIN} 个账号数据，开始批量添加/更新...\n"
         for ((i = 0; i <= $((${#List[@]} - 1)); i++)); do
-            curl -s -L -X POST "http://127.0.0.1:5678/openApi/updateCookie" \
-                -H "api-token: ${OpenApiToken}" \
-                -H "Content-Type: application/json" \
-                --data-raw "{\"cookie\": \"${List[i]}\"}"
-            echo ''
+            echo "${List[i]}" | grep "pt_key=.*;" -q
+            if [ $? -eq 0 ]; then
+                pin="$(echo ${List[i]} | perl -pe "{s|.*pt_pin=([^; ]+)(?=;?).*|\1|}")"
+                key="$(echo ${List[i]} | perl -pe "{s|.*pt_key=([^; ]+)(?=;?).*|\1|}")"
+                ck="pt_key=${key};pt_pin=${pin};"
+
+                curl -s -L -X POST "http://127.0.0.1:5678/openApi/updateCookie" \
+                    -H "api-token: ${OpenApiToken}" \
+                    -H "Content-Type: application/json" \
+                    --data-raw "{\"cookie\": \"${ck}\"}"
+                echo ''
+            else
+                continue
+            fi
         done
         echo -e "\n$COMPLETE 批量添加/更新完成\n"
         ;;
     del)
         echo -e "\n$WORKING 检测到 ${BLUE}${#List[@]}${PLAIN} 个账号数据，开始批量删除...\n"
         for ((i = 0; i <= $((${#List[@]} - 1)); i++)); do
-            local PT_PIN="$(echo ${List[i]} | perl -pe "{s|.*pt_pin=([^; ]+)(?=;?).*|\1|}")"
+            pin="$(echo ${List[i]} | perl -pe "{s|.*pt_pin=([^; ]+)(?=;?).*|\1|}")"
             curl -s -L -X POST "http://127.0.0.1:5678/openApi/cookie/delete" \
                 -H "api-token: ${OpenApiToken}" \
                 -H "Content-Type: application/json" \
-                --data-raw "{\"ptPins\": \"${PT_PIN}\"}"
+                --data-raw "{\"ptPins\": \"${pin}\"}"
             echo ''
         done
         echo -e "\n$COMPLETE 批量删除完成\n"
