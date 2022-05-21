@@ -16,7 +16,7 @@
 #  jd_half_redrain.js              半点京豆雨
 #  jd_shop_sign.js                 店铺签到                 (内置店铺 Token，定期更新)
 #  jd_productZ4Brand.js            特物Z
-#  jd_sign_graphics.js             京东签到图形验证
+#  jd_sign_graphics.js             京东签到翻牌
 #  jd_morningSc.js                 早起赢现金               (活动入口在京东汽车-瓜分万元，支付一元才能参与活动)
 #  jd_moneyTree_heip.js            京东摇钱树助力
 #  jd_dwapp.js                     积分换话费
@@ -106,7 +106,7 @@ my_scripts_list_Public="jd_shop_sign.js jd_super_redrain.js jd_half_redrain.js"
 
 ## 青蛙
 scripts_base_url_smiek2221=https://raw.githubusercontent.com/smiek2121/scripts/master/
-my_scripts_list_smiek2221="jd_sign_graphics.js sign_graphics_validate.js JDJRValidator_Pure.js"
+my_scripts_list_smiek2221="sign_graphics_validate.js JDJRValidator_Pure.js"
 
 ## star261
 scripts_base_url_star261=https://raw.githubusercontent.com/star261/jd/main/scripts/
@@ -122,7 +122,7 @@ my_scripts_list_X1a0He="jd_unsubscribe_xh.js"
 
 ## KingRan
 scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js"
+my_scripts_list_KingRan="jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js"
 
 ## Dellear
 scripts_base_url_Dellear=https://raw.githubusercontent.com/Dellear/lost/main/extra/
