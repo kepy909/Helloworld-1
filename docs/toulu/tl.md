@@ -8,13 +8,15 @@
   ```bash
   task repo git@jd_base_gitee:SuperManito/touluyyds.git master
   ```
+  > [!WARNING|label:郑重声明]
+  > 禁止任何人泄漏仓库脚本，包括但不限于强制同步、搬运等操作，否则江湖再见！
 
 ## 屏蔽账号（超级无线）
 
   ```bash
   case $1 in
   ## 通用
-  jd_lzclient | jd_wxShopFollowActivity | jd_dadoudou | jd_share | m_jd_wx_collectCard)
+  jd_lzclient | jd_wxShopFollowActivity | jd_dadoudou | jd_share | m_jd_wx_collectCard | jd_wxCollectCard | jd_wxSecond)
     TempBlockCookie="" ## 屏蔽黑号
     ;;
   ## 加购建议根据情况自定义
@@ -26,7 +28,7 @@
     ;;
   esac
   ```
-  > 一般 lzkj 域名的活动会出现活动火爆的黑号（提示去买买买），但 cjhy 域名的活动一般不会出现活动火爆黑号玩不了的情况\
+  > 一般 lzkj 域名的活动会出现活动火爆的黑号（提示去买买买），但 cjhy 域名的活动一般不会出现黑号活动火爆玩不了的情况\
   > 同一个类型的活动可能会使用不同的域名，具体黑号能不能玩以域名为准，lzkj 域名的活动是互通的即该域名的活动黑号全玩不了
 
 ## M系列脚本控制变量
