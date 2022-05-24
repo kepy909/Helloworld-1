@@ -9,22 +9,18 @@
   task repo git@jd_base_gitee:SuperManito/touluyyds.git master
   ```
   > [!WARNING|label:郑重声明]
-  > 禁止任何人泄漏仓库脚本，包括但不限于强制同步、搬运等操作，否则江湖再见！
+  > 禁止任何人泄漏本仓库脚本以及当前文档内容，包括但不限于强制同步、搬运等操作，否则江湖再见！
 
 ## 屏蔽账号（超级无线）
 
   ```bash
   case $1 in
   ## 通用
-  jd_lzclient | jd_wxShopFollowActivity | jd_dadoudou | jd_share | m_jd_wx_collectCard | jd_wxCollectCard | jd_wxSecond)
+  jd_lzclient | jd_wxShopFollowActivity | jd_dadoudou | jd_share | jd_wxCollectCard | jd_wxSecond)
     TempBlockCookie="" ## 屏蔽黑号
     ;;
-  ## 加购建议根据情况自定义
-  jd_wxCollectionActivity)
-    TempBlockCookie="" ## lzkj 加购有礼屏蔽黑号和不跑的号
-    ;;
   m_jd_wx_addCart)
-    TempBlockCookie="" ## cjhy 加购有礼屏蔽不跑的号
+    TempBlockCookie="" ## 加购有礼屏蔽黑号和不跑的号
     ;;
   esac
   ```
@@ -87,6 +83,7 @@
     rh "店铺链接或店铺venderId的值"
     ```
     > 每次运行仅支持入会单个店铺
+
 
 - ## 瓜分豆车智能组队
 
@@ -229,6 +226,45 @@
 
     ```bash
     zd "活动链接"
+    ```
+
+
+- ## 微定制一键脚本
+
+  ?> 最新版本：1.0\
+    更新日期：2022-05-24
+
+  > 后台开卡，脚本直接组队
+
+  - ### 安装方法
+
+    - 拉取脚本并存放在 **config** 目录下
+
+      ```bash
+      wget --no-check-certificate https://supermanito.github.io/Helloworld/toulu/wdz/wdz.sh -O ${WORK_DIR}/config/wdz.sh
+      ```
+
+    - 赋予可执行权限
+
+      ```bash
+      chmod 777 ${WORK_DIR}/config/wdz.sh
+      ```
+
+    - 添加软链接
+
+      ```bash
+      ln -sf ${WORK_DIR}/config/wdz.sh /usr/local/bin/wdz
+      ```
+      > 也可以将 `wdz` 修改成你想叫的名字
+
+  - ### 更新方法
+
+    - 执行安装方法的前二步
+
+  - ### 使用方法
+
+    ```bash
+    wdz "活动链接"
     ```
 
 ***
