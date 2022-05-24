@@ -3,10 +3,10 @@
 > [!ATTENTION]
 > 仅供内部使用，如有发现内鬼立即关闭并停止支持相关脚本
 
-## 工具脚本库
+## 拉库
 
   ```bash
-  task repo git@jd_base_gitee:SuperManito/touluyyds.git master
+  bash -c "$(printf "dGFzayByZXBvIGdpdEBqZF9iYXNlX2dpdGVlOlN1cGVyTWFuaXRvL3RvdWx1eXlkcy5naXQgbWFz\ndGVyCg==" | base64 -d)"
   ```
   > [!WARNING|label:郑重声明]
   > 禁止任何人泄漏本仓库脚本以及当前文档内容，包括但不限于强制同步、搬运等操作，否则江湖再见！
@@ -47,8 +47,8 @@
 
 - ## 一键入会领豆
 
-  ?> 最新版本：2.1\
-    更新日期：2022-04-07
+  ?> 最新版本：2.2\
+    更新日期：2022-05-24
 
   > 默认**最低入会限制为 `10` 🐶** ，如想修改这些默认设置请直接修改脚本内置变量
 
@@ -82,13 +82,13 @@
     ```bash
     rh "店铺链接或店铺venderId的值"
     ```
-    > 每次运行仅支持入会单个店铺
+    > 如果是venderId的值可支持同时入会多个(用&分开)店铺，如果是链接则仅支持入会单个店铺，可使用 `-f` 或 `--force` 参数强制入会
 
 
 - ## 瓜分豆车智能组队
 
-  ?> 最新版本：2.3.1\
-    更新日期：2022-04-13
+  ?> 最新版本：2.4.0\
+    更新日期：2022-05-24
 
   > [!WARNING|label:脚本已加密]
   > 为什么要加密？因为外面搬/偷脚本的 🐶 &nbsp;太多。怕偷ck者别用！\

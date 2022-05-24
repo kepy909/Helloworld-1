@@ -1,8 +1,8 @@
 #!/bin/bash
 ## 一键入会领豆 - 辅助工具脚本
-## Version: 2.1
+## Version: 2.2
 ## Author: SuperManito
-## Modified: 2022-04-07
+## Modified: 2022-05-24
 
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 用 户 定 义 区 域 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ #
 
@@ -18,20 +18,25 @@ else
     echo -e "\n[\033[31mERROR\033[0m] 请进入容器内执行此脚本！\n"
 fi
 
-## 变量
-LocalTargetDir=$OwnDir/SuperManito_touluyyds/tools
-LocalTargetScript=$LocalTargetDir/jd_OpenCard.js
-
 ## 使用帮助
 function Help() {
     if [ -x /usr/local/bin/rh ]; then
-        echo -e "\n${GREEN}使用方法${PLAIN}：在 ${BLUE}rh${PLAIN} 后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 ${BLUE}venderId${PLAIN} 的值，每次运行仅支持入会单个店铺\n"
+        echo -e "\n${GREEN}使用方法${PLAIN}：在 ${BLUE}rh${PLAIN} 后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 ${BLUE}venderId${PLAIN} 的值，如果是链接则仅支持单个，可使用 ${BLUE}-f${PLAIN} 或 ${BLUE}--force${PLAIN} 参数强制入会\n"
     else
-        echo -e "\n${GREEN}使用方法${PLAIN}：使用 ${BLUE}bash${PLAIN} 执行此脚本并在后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 ${BLUE}venderId${PLAIN} 的值，每次运行仅支持入会单个店铺\n"
+        echo -e "\n${GREEN}使用方法${PLAIN}：使用 ${BLUE}bash${PLAIN} 执行此脚本并在后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 ${BLUE}venderId${PLAIN} 的值，的值，如果是链接则仅支持单个，可使用，可使用 ${BLUE}-f${PLAIN} 或 ${BLUE}--force${PLAIN} 参数强制入会\n"
     fi
 }
 
 function Main() {
+
+    ## 变量
+    LocalTargetDir=$OwnDir/SuperManito_touluyyds/tools
+
+    if [[ ${Force_Mod} == "false" ]]; then
+        LocalTargetScript=$LocalTargetDir/jd_OpenCard.js
+    else
+        LocalTargetScript=$LocalTargetDir/jd_OpenCard_Force.js
+    fi
 
     ## 获取店铺ID
     function GetVenderId() {
@@ -89,11 +94,13 @@ function Main() {
     }
     ## 定义相关环境变量
     function ChangeEnv() {
-        grep "^export OPENCARD_BEAN=" $FileConfUser -q
-        if [ $? -eq 0 ]; then
-            bash -c "$TaskCmd env edit OPENCARD_BEAN ${MinimumBeans} >/dev/null 2>&1"
-        else
-            bash -c "$TaskCmd env add OPENCARD_BEAN ${MinimumBeans} '最低入会豆数' >/dev/null 2>&1"
+        if [[ ${Force_Mod} == "false" ]]; then
+            grep "^export OPENCARD_BEAN=" $FileConfUser -q
+            if [ $? -eq 0 ]; then
+                bash -c "$TaskCmd env edit OPENCARD_BEAN ${MinimumBeans} >/dev/null 2>&1"
+            else
+                bash -c "$TaskCmd env add OPENCARD_BEAN ${MinimumBeans} '最低入会豆数' >/dev/null 2>&1"
+            fi
         fi
         grep "^export VENDER_ID=" $FileConfUser -q
         if [ $? -eq 0 ]; then
@@ -118,7 +125,20 @@ function Main() {
 
 case $# in
 1)
+    Force_Mod="false"
     Main "$1"
+    ;;
+2)
+    if [[ "$1" == "-f" ]] || [[ "$1" == "--force" ]]; then
+        Force_Mod="true"
+        Main "$2"
+    elif [[ "$2" == "-f" ]] || [[ "$2" == "--force" ]]; then
+        Force_Mod="true"
+        Main "$1"
+    else
+        echo -e "\n$ERROR 参数错误！\n"
+        exit
+    fi
     ;;
 *)
     Help
