@@ -1,6 +1,6 @@
 #!/bin/bash
-# Update: 2022-05-24
-# Content: add  jd_desire.js(京东集魔方)
+# Update: 2022-05-25
+# Content: add  jd_618dfw.js(大富翁金币)
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -41,6 +41,7 @@
 #  jd_superBrandStar.js            特务Z明星送好礼
 #  jd_joymanor_task.js             JOY庄园每日任务
 #  jd_desire.js                    京东集魔方
+#  jd_618dfw.js                    大富翁金币
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -75,8 +76,8 @@
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-05-24"
-UpdateContent="jd_desire.js(京东集魔方)"
+UpdateDate="2022-05-25"
+UpdateContent="add  jd_618dfw.js(大富翁金币)"
 
 ## 作者
 author_list="Public smiek2221 star261 yyds X1a0He KingRan Dellear jiulan ccwav"
@@ -109,7 +110,7 @@ my_scripts_list_smiek2221="sign_graphics_validate.js JDJRValidator_Pure.js"
 
 ## star261
 scripts_base_url_star261=https://raw.githubusercontent.com/star261/jd/main/scripts/
-my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js"
+my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js jd_618dfw.js"
 
 ## yyds
 scripts_base_url_yyds=https://raw.githubusercontent.com/okyyds/yydspure/master/
