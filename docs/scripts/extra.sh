@@ -1,6 +1,6 @@
 #!/bin/bash
-# Update: 2022-05-25
-# Content: add  jd_618dfw.js(大富翁金币)
+# Update: 2022-05-26
+# Content: add  jd_tanwei.js(探味奇遇记) jd_xm618.js(逛小米618赢千万京豆)
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -42,6 +42,8 @@
 #  jd_joymanor_task.js             JOY庄园每日任务
 #  jd_desire.js                    京东集魔方
 #  jd_618dfw.js                    大富翁金币
+#  jd_tanwei.js                    探味奇遇记
+#  jd_xm618.js                     逛小米618赢千万京豆
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -71,13 +73,12 @@
 
 ##############################  近  期  删  除  ##############################
 
-
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-05-25"
-UpdateContent="add  jd_618dfw.js(大富翁金币)"
+UpdateDate="2022-05-26"
+UpdateContent="add  jd_tanwei.js(探味奇遇记) jd_xm618.js(逛小米618赢千万京豆)"
 
 ## 作者
 author_list="Public smiek2221 star261 yyds X1a0He KingRan Dellear jiulan ccwav"
@@ -110,7 +111,7 @@ my_scripts_list_smiek2221="sign_graphics_validate.js JDJRValidator_Pure.js"
 
 ## star261
 scripts_base_url_star261=https://raw.githubusercontent.com/star261/jd/main/scripts/
-my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js jd_618dfw.js"
+my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js jd_618dfw.js jd_xm618.js"
 
 ## yyds
 scripts_base_url_yyds=https://raw.githubusercontent.com/okyyds/yydspure/master/
@@ -122,7 +123,7 @@ my_scripts_list_X1a0He="jd_unsubscribe_xh.js"
 
 ## KingRan
 scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js"
+my_scripts_list_KingRan="jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js"
 
 ## Dellear
 scripts_base_url_Dellear=https://raw.githubusercontent.com/Dellear/lost/main/extra/
