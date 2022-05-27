@@ -1,6 +1,7 @@
 #!/bin/bash
 # Update: 2022-05-27
-# Content: del  jd_bean_xibean.js
+# Content: add  jd_19E_help.js(京东618热爱奇旅互助版) jd_19E_friends.js(京东618热爱奇旅升级) jd_19EPZ_help.js(京东618热爱奇旅膨胀内部互助) jd_try.js(京东试用)
+#          del  jd_bean_xibean.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -43,6 +44,9 @@
 #  jd_618dfw.js                    大富翁金币
 #  jd_tanwei.js                    探味奇遇记
 #  jd_xm618.js                     逛小米618赢千万京豆
+#  jd_19E_help.js                  京东618热爱奇旅互助版      (默认不运行，安全性自行衡量，如需使用请定义环境变量 export JD_19E="true")
+#  jd_19E_friends.js               京东618热爱奇旅升级
+#  jd_19EPZ_help.js                京东618热爱奇旅膨胀内部互助
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -79,7 +83,7 @@
 
 NewLine="\n          "
 UpdateDate="2022-05-27"
-UpdateContent="del  jd_bean_xibean.js"
+UpdateContent="add  jd_19E_help.js(京东618热爱奇旅互助版) jd_19E_friends.js(京东618热爱奇旅升级) jd_19EPZ_help.js(京东618热爱奇旅膨胀内部互助) jd_try.js(京东试用)${NewLine}del  jd_bean_xibean.js"
 
 ## 作者
 author_list="Public Dellear star261 yyds KingRan jiulan X1a0He"
@@ -118,7 +122,7 @@ my_scripts_list_yyds="JDSignValidator.js jd_try_notify.py jd_morningSc.js jd_mon
 
 ## KingRan
 scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="jd_try.js sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js"
+my_scripts_list_KingRan="jd_try.js sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js jd_19E_help.js jd_19E_friends.js jd_19EPZ_help.js"
 
 ## jiulan
 scripts_base_url_jiulan=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/
@@ -257,6 +261,9 @@ for author in $author_list; do
         ;;
       jd_txjf.js)
         script_cron="8 0,1 * * *" # 指定通讯积分的定时
+        ;;
+      jd_19EPZ_help.js)
+        script_cron="30 23 * * *" # 热爱奇旅膨胀内部互助
         ;;
       *)
         if [[ -z ${script_cron_standard} ]]; then
