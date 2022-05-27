@@ -1,7 +1,7 @@
 #!/bin/bash
 # Update: 2022-05-27
 # Content: add  jd_19E_help.js(京东618热爱奇旅互助版) jd_19E_friends.js(京东618热爱奇旅升级) jd_19EPZ_help.js(京东618热爱奇旅膨胀内部互助) jd_try.js(京东试用)
-#          del  jd_bean_xibean.js
+#          del  jd_bean_xibean.js jd_m_sign.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -23,7 +23,6 @@
 #  jd_gold_sign.js                 京东金榜签到
 #  jd_beauty_ex.js                 美丽研究院兑换京豆
 #  jd_jfcz.js                      见缝插针
-#  jd_m_sign.js                    京东通天塔--签到
 #  jd_txjf.js                      通讯积分
 #  jd_wish.js                      众筹许愿池
 #  jd_wq_wxsign.js                 微信签到领红包
@@ -77,13 +76,14 @@
 ##############################  近  期  删  除  ##############################
 
 # jd_bean_xibean.js
+# jd_m_sign.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
 UpdateDate="2022-05-27"
-UpdateContent="add  jd_19E_help.js(京东618热爱奇旅互助版) jd_19E_friends.js(京东618热爱奇旅升级) jd_19EPZ_help.js(京东618热爱奇旅膨胀内部互助) jd_try.js(京东试用)${NewLine}del  jd_bean_xibean.js"
+UpdateContent="add  jd_19E_help.js(京东618热爱奇旅互助版) jd_19E_friends.js(京东618热爱奇旅升级) jd_19EPZ_help.js(京东618热爱奇旅膨胀内部互助) jd_try.js(京东试用)${NewLine}del  jd_bean_xibean.js jd_m_sign.js"
 
 ## 作者
 author_list="Public Dellear star261 yyds KingRan jiulan X1a0He"
@@ -122,7 +122,7 @@ my_scripts_list_yyds="JDSignValidator.js jd_try_notify.py jd_morningSc.js jd_mon
 
 ## KingRan
 scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="jd_try.js sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js jd_19E_help.js jd_19E_friends.js jd_19EPZ_help.js"
+my_scripts_list_KingRan="jd_try.js sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js jd_19E_help.js jd_19E_friends.js jd_19EPZ_help.js"
 
 ## jiulan
 scripts_base_url_jiulan=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/
@@ -308,7 +308,7 @@ for del in ${DeleteCacheFiles}; do
 done
 
 ## 删除脚本和定时
-DeleteScripts="jd_bean_xibean.js"
+DeleteScripts="jd_bean_xibean.js jd_m_sign.js"
 for del in ${DeleteScripts}; do
   [ -f $ScriptsDir/$del ] && rm -rf $ScriptsDir/$del && sed -i "/ $TaskCmd $(echo "$del" | awk -F\. '{print $1}' | perl -pe "{s|^jd_||; s|^jx_||; s|^jr_||;}")/d" $ListCrontabUser
 done
