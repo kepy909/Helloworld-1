@@ -1,6 +1,6 @@
 #!/bin/bash
-# Update: 2022-05-26
-# Content: add  jd_tanwei.js(探味奇遇记) jd_xm618.js(逛小米618赢千万京豆)
+# Update: 2022-05-27
+# Content: del  jd_bean_xibean.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -8,7 +8,6 @@
 #  jd_price.js                     京东价保
 #  jd_try.js                       京东试用
 #  jd_try_notify.py                京东试用待领取通知
-#  jd_bean_xibean.js               过期京豆自动兑换喜豆
 #  jd_unsubscriLive.js             取关所有主播
 #  jd_unsubscribe_xh.js            取关店铺和商品
 #  jd_super_redrain.js             整点京豆雨
@@ -73,25 +72,25 @@
 
 ##############################  近  期  删  除  ##############################
 
+# jd_bean_xibean.js
+
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-05-26"
-UpdateContent="add  jd_tanwei.js(探味奇遇记) jd_xm618.js(逛小米618赢千万京豆)"
+UpdateDate="2022-05-27"
+UpdateContent="del  jd_bean_xibean.js"
 
 ## 作者
-author_list="Public smiek2221 star261 yyds X1a0He KingRan Dellear jiulan ccwav"
+author_list="Public Dellear star261 yyds KingRan jiulan X1a0He"
 author_name=(
   Public
-  青蛙
+  Dellear
   star261
   yyds
-  X1a0He
   KingRan
-  Dellear
   jiulan
-  ccwav
+  X1a0He
 )
 
 ## 定义下载代理 (非内置功能)
@@ -105,9 +104,9 @@ fi
 scripts_base_url_Public=https://supermanito.github.io/Helloworld/scripts/
 my_scripts_list_Public="jd_shop_sign.js jd_super_redrain.js jd_half_redrain.js"
 
-## 青蛙
-scripts_base_url_smiek2221=https://raw.githubusercontent.com/smiek2121/scripts/master/
-my_scripts_list_smiek2221="sign_graphics_validate.js JDJRValidator_Pure.js"
+## Dellear
+scripts_base_url_Dellear=https://raw.githubusercontent.com/Dellear/lost/main/extra/
+my_scripts_list_Dellear="jd_price.js"
 
 ## star261
 scripts_base_url_star261=https://raw.githubusercontent.com/star261/jd/main/scripts/
@@ -117,21 +116,21 @@ my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js jd_618dfw.j
 scripts_base_url_yyds=https://raw.githubusercontent.com/okyyds/yydspure/master/
 my_scripts_list_yyds="JDSignValidator.js jd_try.js jd_try_notify.py jd_morningSc.js jd_moneyTree_heip.js jd_dwapp.js jd_unsubscriLive.js jd_nnfls.js jd_gold_sign.js jd_beauty_ex.js jd_wq_wxsign.js jd_wyw.js jd_mpdzcar.js jd_mpdzcar_game.js jd_mpdzcar_help.js jd_ddly.js jd_speed_redpocke.js"
 
-## X1a0He
-scripts_base_url_X1a0He=https://raw.githubusercontent.com/X1a0He/jd_scripts_fixed/main/
-my_scripts_list_X1a0He="jd_unsubscribe_xh.js"
-
 ## KingRan
 scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js"
-
-## Dellear
-scripts_base_url_Dellear=https://raw.githubusercontent.com/Dellear/lost/main/extra/
-my_scripts_list_Dellear="jd_bean_xibean.js jd_price.js"
+my_scripts_list_KingRan="sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_m_sign.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js"
 
 ## jiulan
 scripts_base_url_jiulan=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/
 my_scripts_list_jiulan="jd_jfcz.js jd_txjf.js"
+
+## X1a0He
+scripts_base_url_X1a0He=https://raw.githubusercontent.com/X1a0He/jd_scripts_fixed/main/
+my_scripts_list_X1a0He="jd_unsubscribe_xh.js"
+
+## 青蛙
+scripts_base_url_smiek2221=https://raw.githubusercontent.com/smiek2121/scripts/master/
+my_scripts_list_smiek2221=""
 
 ## ccwav
 scripts_base_url_ccwav=https://raw.githubusercontent.com/ccwav/QLScript2/main/ModScript/
@@ -302,7 +301,7 @@ for del in ${DeleteCacheFiles}; do
 done
 
 ## 删除脚本和定时
-DeleteScripts=""
+DeleteScripts="jd_bean_xibean.js"
 for del in ${DeleteScripts}; do
   [ -f $ScriptsDir/$del ] && rm -rf $ScriptsDir/$del && sed -i "/ $TaskCmd $(echo "$del" | awk -F\. '{print $1}' | perl -pe "{s|^jd_||; s|^jx_||; s|^jr_||;}")/d" $ListCrontabUser
 done
