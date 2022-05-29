@@ -264,7 +264,7 @@
       /**
        * 获取到家果园互助码
        */
-      app.get('/api/sharecode/jddj_fruit', function(req, res) {
+      app.get('/api/extra/sharecode/jddj_fruit', function(req, res) {
         const page = req.query.page || '1';
         const size = req.query.size || '5';
         const content = createJddjFruitCodeTxt(Number(page), Number(size));
