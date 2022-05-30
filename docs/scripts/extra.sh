@@ -1,6 +1,6 @@
 #!/bin/bash
-# Update: 2022-05-29
-# Content: del  jd_19E_help.js
+# Update: 2022-05-30
+# Content: del  jd_19E_friends.js jd_19EPZ_help.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -42,8 +42,6 @@
 #  jd_618dfw.js                    大富翁金币
 #  jd_tanwei.js                    探味奇遇记
 #  jd_xm618.js                     逛小米618赢千万京豆
-#  jd_19E_friends.js               京东618热爱奇旅升级
-#  jd_19EPZ_help.js                京东618热爱奇旅膨胀内部互助 (默认不运行，安全性自行衡量，如需使用请定义环境变量 export JD_19E="true")
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -73,14 +71,15 @@
 
 ##############################  近  期  删  除  ##############################
 
-# jd_19E_help.js
+# jd_19E_friends.js
+# jd_19EPZ_help.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-05-29"
-UpdateContent="del  jd_19E_help.js"
+UpdateDate="2022-05-30"
+UpdateContent="del  jd_19E_friends.js jd_19EPZ_help.js"
 
 ## 作者
 author_list="Public Dellear star261 yyds KingRan jiulan X1a0He"
@@ -259,9 +258,6 @@ for author in $author_list; do
       jd_txjf.js)
         script_cron="8 0,1 * * *" # 指定通讯积分的定时
         ;;
-      jd_19EPZ_help.js)
-        script_cron="30 23 * * *" # 热爱奇旅膨胀内部互助
-        ;;
       *)
         if [[ -z ${script_cron_standard} ]]; then
           tmp1=$(grep -E "^cron|script-path=|tag=|[0-9] \* \*|^[0-9]\*.*$name" $ScriptsDir/$name | grep -Ev "^https\?:|^function " | head -1 | perl -pe '{s|[a-zA-Z\"\.\=\:\_]||g;}')
@@ -305,7 +301,7 @@ for del in ${DeleteCacheFiles}; do
 done
 
 ## 删除脚本和定时
-DeleteScripts="jd_19E_help.js"
+DeleteScripts="jd_19E_friends.js jd_19EPZ_help.js"
 for del in ${DeleteScripts}; do
   [ -f $ScriptsDir/$del ] && rm -rf $ScriptsDir/$del && sed -i "/ $TaskCmd $(echo "$del" | awk -F\. '{print $1}' | perl -pe "{s|^jd_||; s|^jx_||; s|^jr_||;}")/d" $ListCrontabUser
 done
