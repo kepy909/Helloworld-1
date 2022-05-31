@@ -113,7 +113,7 @@ scripts_base_url_star261=https://raw.githubusercontent.com/star261/jd/main/scrip
 my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js jd_618dfw.js jd_xm618.js"
 
 ## yyds
-scripts_base_url_yyds=https://raw.githubusercontent.com/okyyds/yydspure/master/
+scripts_base_url_yyds=https://raw.githubusercontent.com/okyyds/yyds/master/
 my_scripts_list_yyds="JDSignValidator.js jd_try_notify.py jd_morningSc.js jd_moneyTree_heip.js jd_dwapp.js jd_unsubscriLive.js jd_nnfls.js jd_gold_sign.js jd_beauty_ex.js jd_wq_wxsign.js jd_wyw.js jd_mpdzcar.js jd_mpdzcar_game.js jd_mpdzcar_help.js jd_ddly.js jd_speed_redpocke.js"
 
 ## KingRan
