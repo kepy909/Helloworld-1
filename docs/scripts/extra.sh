@@ -118,7 +118,7 @@ my_scripts_list_yyds="JDSignValidator.js jd_try_notify.py jd_morningSc.js jd_mon
 
 ## KingRan
 scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="jd_try.js sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js jd_19E_friends.js jd_19EPZ_help.js"
+my_scripts_list_KingRan="jd_try.js sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js"
 
 ## jiulan
 scripts_base_url_jiulan=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/
