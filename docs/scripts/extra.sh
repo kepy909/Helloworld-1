@@ -1,12 +1,13 @@
 #!/bin/bash
-# Update: 2022-05-30
-# Content: del  jd_19E_friends.js jd_19EPZ_help.js
+# Update: 2022-06-02
+# Content: add  jd_cleancart.js(清空购物车) jd_jin_tie_xh.js(领金贴) jd_superBrandSign.js(特物Z签到)
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
 
 #  jd_price.js                     京东价保
-#  jd_try.js                       京东试用
+#  jd_cleancart.js                 清空购物车               (需要设置变量才会运行，详见下方)
+#  jd_try.js                       京东试用                 (需要设置多个变量，详见下方)
 #  jd_try_notify.py                京东试用待领取通知
 #  jd_unsubscriLive.js             取关所有主播
 #  jd_unsubscribe_xh.js            取关店铺和商品
@@ -42,11 +43,20 @@
 #  jd_618dfw.js                    大富翁金币
 #  jd_tanwei.js                    探味奇遇记
 #  jd_xm618.js                     逛小米618赢千万京豆
+#  jd_jin_tie_xh.js                领金贴
+#  jd_superBrandSign.js            特物Z签到
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
 ## 快速添加环境变量：task env add <变量名> <变量的值>
 
+# "清空购物车"
+#    export JD_CART=""               # 启用脚本
+#    export XH_CLEAN_REMOVESIZE=""   # 空值一次取消多少条购物车数据，0为不删除，默认100
+#    export XH_CLEAN_KEYWORDS=""     # 不从购物车清空的商品，填写过滤关键字/词，多个用@分隔
+# "批量取关店铺和商品"
+#    export JD_UNSUB_GKEYWORDS="" # 商品类过滤关键词，多个用@分隔
+#    export JD_UNSUB_SKEYWORDS="" # 店铺类过滤关键词，多个用@分隔
 # "早起赢现金"
 #    export morningScPins=""  # 指定打卡账号，填 pt_pin 的值
 # "京东试用"
@@ -65,9 +75,6 @@
 #    export JD_TRY_WHITELIST=""          # 试用商品标题白名单是否打开，开启白名单后黑名单将不生效失效，默认为false
 #    export JD_TRY_WHITELISTKEYWORDS=""  # 试用商品标题白名单关键词，多个关键词用@隔开
 #    export JD_TRY_SENDNUM=""            # 每多少个账号推送一次通知，默认为4
-# "批量取关店铺和商品"
-#    export JD_UNSUB_GKEYWORDS="" # 商品类过滤关键词，多个用@分隔
-#    export JD_UNSUB_SKEYWORDS="" # 店铺类过滤关键词，多个用@分隔
 
 ##############################  近  期  删  除  ##############################
 
@@ -78,8 +85,8 @@
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-05-30"
-UpdateContent="del  jd_19E_friends.js jd_19EPZ_help.js"
+UpdateDate="2022-06-02"
+UpdateContent="add  jd_cleancart.js(清空购物车) jd_jin_tie_xh.js(领金贴) jd_superBrandSign.js(特物Z签到)"
 
 ## 作者
 author_list="Public Dellear star261 yyds KingRan jiulan X1a0He"
@@ -118,7 +125,7 @@ my_scripts_list_yyds="JDSignValidator.js jd_try_notify.py jd_morningSc.js jd_mon
 
 ## KingRan
 scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="jd_try.js sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js"
+my_scripts_list_KingRan="jd_try.js sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_desire.js jd_tanwei.js jd_superBrandSign.js"
 
 ## jiulan
 scripts_base_url_jiulan=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/
@@ -126,7 +133,7 @@ my_scripts_list_jiulan="jd_jfcz.js jd_txjf.js"
 
 ## X1a0He
 scripts_base_url_X1a0He=https://raw.githubusercontent.com/X1a0He/jd_scripts_fixed/main/
-my_scripts_list_X1a0He="jd_unsubscribe_xh.js"
+my_scripts_list_X1a0He="jd_unsubscribe_xh.js jd_cleancart.js jd_jin_tie_xh.js"
 
 ## 青蛙
 scripts_base_url_smiek2221=https://raw.githubusercontent.com/smiek2121/scripts/master/
