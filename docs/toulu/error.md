@@ -23,8 +23,8 @@
     jd_lzclient | jd_dadoudou | jd_share | jd_wxShopFollowActivity | jd_wxCollectCard | jd_wxSecond | jd_wxUnPackingActivity | jd_jinggengjcq_dapainew_tool)
       TempBlockCookie="" ## 屏蔽黑号
       ;;
-    m_jd_wx_addCart)
-      TempBlockCookie="" ## 加购有礼屏蔽黑号和不跑的号
+    m_jd_wx_addCart | jd_wxCartKoi | jd_drawCenter)
+      TempBlockCookie="" ## 加购相关活动屏蔽黑号和不跑的号
       ;;
     esac
     ```
