@@ -114,15 +114,21 @@
 
   - 安装 Nodejs
 
-    ```bash
-    curl -sL https://deb.nodesource.com/setup_16.x | bash -
-    ```
-    > 由于 NodeSource 没有国内源，下载速度可能较慢
+    > 由于 NodeSource 没有国内源，下载速度可能较慢，会附带安装 **npm**
 
-    ```bash
-    apt-get install -y nodejs 或 yum install -y nodejs
-    ```
-    > 根据自己的操作系统使用对应包管理工具进行安装，该命令会附带安装 **npm**
+    - Debian/Ubuntu/Kali
+
+      ```bash
+      curl -sL https://deb.nodesource.com/setup_16.x | bash -
+      apt-get install -y nodejs
+      ```
+
+    - RHEL/CentOS/Fedora
+
+      ```bash
+      curl -sL https://rpm.nodesource.com/setup_16.x | bash -
+      yum install -y nodejs
+      ```
   
   - npm 切换国内源
 
@@ -162,17 +168,17 @@
     
     - ##### 1. 安装证书
 
-      !> 用手机自带的或已安装的浏览器APP打开不要通过微信，iOS统一用Safari
+      !> 用手机自带的或已安装的浏览器APP打开不要通过微信，:fa-brands fa-apple: Apple 设备建议使用 :fa-brands fa-safari: Safari
 
       ?> 系统浏览器打开 [http://\<ip\>:8002](http://<ip>:8002 ':disabled') 左侧 RootCA - Download 下载证书文件，如果出现让你选择文件则选择第一个 `rootCA.crt`
 
-      - ###### iOS/iPadOS：下载后弹窗点击允许，如果没有自动弹窗那么就从下载历史里点一下，然后打开系统设置 - 已下载描述文件 - 安装，安装完成后转到通用 - 关于本机 - 证书信任设置 - 针对根证书启用完全信任 - 启用 AnyProxy
-      - ###### Android：从本地文件管理或浏览器下载记录中点击已下载的证书文件，会自动弹出系统自带的证书安装器（可能会让你选择打开程序方式），填写名称为 AnyProxy 或随便起个，类型保持默认选择用于Wi-Fi
+      - ###### :fa-brands fa-apple: iOS/iPadOS：下载后弹窗点击允许，如果没有自动弹窗那么就从下载历史里点一下，然后打开系统设置 - 已下载描述文件 - 安装，安装完成后转到通用 - 关于本机 - 证书信任设置 - 针对根证书启用完全信任 - 启用 AnyProxy
+      - ###### :fa-brands fa-android: Android：从本地文件管理或浏览器下载记录中点击已下载的证书文件，会自动弹出系统自带的证书安装器（可能会让你选择打开程序方式），填写名称为 AnyProxy 或随便起个，类型保持默认选择用于Wi-Fi
     
     - ##### 2. 配置代理
 
-      - ###### iOS/iPadOS：系统设置 - 无线局域网 - 已连接Wi-Fi右边感叹号 - 下划至底部配置代理 - 选择手动
-      - ###### Android：系统设置 - WLAN - 长按已连接的Wi-Fi进入配置找到配置代理选项（各品牌OS界面不同自行判断） - 选择手动
+      - ###### :fa-brands fa-apple: iOS/iPadOS：系统设置 - 无线局域网 - 已连接Wi-Fi右边感叹号 - 下划至底部配置代理 - 选择手动
+      - ###### :fa-brands fa-android: Android：系统设置 - WLAN - 长按已连接的Wi-Fi进入配置找到配置代理选项（各品牌OS界面不同自行判断） - 选择手动
 
       > [!NOTE|label:具体配置内容]
       > 主机名：`<ip>`\
@@ -182,6 +188,7 @@
       > 通过专业软件连接代理也是可以的，运营商网络也支持配置代理，不过最方便的还是通过Wi-Fi连接，因为对方不一定懂这些
 
     - ##### 3. 打开JD APP
+
       > 如果是更新账号，则需要先在设置中退出（手动注销）已经登录的账号，然后再重新登录一下，否则抓取的可能仍是旧的
 
       > 如果之前打开过则需要从后台关掉重新打开一个新的，如果前两步操作正确APP会正常联网否则就加载不出来内容，然后点击 **我的** 随便划一划等待加载出用户信息
@@ -190,6 +197,6 @@
 
     > 打开 [http://\<ip\>:8002](http://<ip>:8002 ':disabled') 进入 AnyProxy 面板查看关于 `api.m.jd.com` 域名链接特别长的 **POST** 请求，`wskey`会出现在 **Cookies** 中
 
-    > 抓到后联系对方关闭代理即可，证书删不删无所谓实际上没有任何影响（部分安卓手机可能会出现关于安装第三方证书的网络警告），如果短期内仍有使用需求的话则建议保留
+    > 抓到后联系对方关闭代理即可，证书删不删无所谓没有任何影响（部分安卓手机可能会在锁屏界面出现关于安装第三方证书的网络警告），如果短期内仍有使用需求的话则建议保留
 
     ?> AnyProxy 面板有内容说明代理连接正常，如果请求中没有 `Header` 内容或者客户端断网说明证书安装异常，已知某为手机容易出现APP断网的情况原因暂时未知...
