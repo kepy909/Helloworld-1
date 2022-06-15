@@ -105,12 +105,12 @@
 ***
 
 ## 协助抓取
-> 此方法**旨在为帮助他人抓取WSKEY**，需要一台有**公网IP**的 Linux 环境，基于 [AnyProxy - 由阿里巴巴集团发布的一款开源抓包工具](https://github.com/alibaba/anyproxy)\
+> 此方法旨在为**帮助他人抓取WSKEY**，需要一台**能够通过公网访问**的 Linux 环境，基于 [AnyProxy - 由阿里巴巴集团发布的一款开源抓包工具](https://github.com/alibaba/anyproxy)\
 > 如果是本地操作借助一些专业工具即可无需使用此方法，例如安卓：Httpcanary；IOS：Stream、Thor 等App
 
 - ### 安装 Nodejs 和 npm 环境 <!-- {docsify-ignore} -->
 
-  > 如果已安装则忽略该步骤
+  ?> 如果已安装则忽略该步骤
 
   - 安装 Nodejs
 
@@ -168,24 +168,30 @@
     
     - ##### 1. 安装证书
 
-      !> 用手机自带的或已安装的浏览器APP打开不要通过微信，:fa-brands fa-apple: Apple 设备建议使用 :fa-brands fa-safari: Safari
+      !> 不要通过 :fa-brands fa-weixin: 微信打开链接！请使用浏览器App，:fa-brands fa-apple: Apple 设备建议使用 :fa-brands fa-safari: Safari
 
       ?> 系统浏览器打开 [http://\<ip\>:8002](http://<ip>:8002 ':disabled') 左侧 RootCA - Download 下载证书文件，如果出现让你选择文件则选择第一个 `rootCA.crt`
 
-      - ###### :fa-brands fa-apple: iOS/iPadOS：下载后弹窗点击允许，如果没有自动弹窗那么就从下载历史里点一下，然后打开系统设置 - 已下载描述文件 - 安装，安装完成后转到通用 - 关于本机 - 证书信任设置 - 针对根证书启用完全信任 - 启用 AnyProxy
-      - ###### :fa-brands fa-android: Android：从本地文件管理或浏览器下载记录中点击已下载的证书文件，会自动弹出系统自带的证书安装器（可能会让你选择打开程序方式），填写名称为 AnyProxy 或随便起个，类型保持默认选择用于Wi-Fi
+      - ###### :fa-brands fa-apple: iOS/iPadOS
+        下载后弹窗点击允许，如果没有自动弹窗那么就从下载历史里点一下，然后打开设置 - 已下载描述文件(Apple账号下方) - 安装，安装完成后转到通用 - 关于本机 - 证书信任设置 - 针对根证书启用完全信任 - 启用 AnyProxy
+
+      - ###### :fa-brands fa-android: Android
+        从本地文件管理或浏览器下载记录中点击已下载的证书文件，会自动弹出系统自带的证书安装器（可能会让你选择打开程序方式），填写名称为 AnyProxy 或随便起个，类型保持默认选择用于Wi-Fi
     
     - ##### 2. 配置代理
 
-      - ###### :fa-brands fa-apple: iOS/iPadOS：系统设置 - 无线局域网 - 已连接Wi-Fi右边感叹号 - 下划至底部配置代理 - 选择手动
-      - ###### :fa-brands fa-android: Android：系统设置 - WLAN - 长按已连接的Wi-Fi进入配置找到配置代理选项（各品牌OS界面不同自行判断） - 选择手动
+      - ###### :fa-brands fa-apple: iOS/iPadOS
+        设置 - 无线局域网 - 点击已连接Wi-Fi右边的感叹号 - 配置HTTP代理(下划至底部) - 选择手动
 
-      > [!NOTE|label:具体配置内容]
+      - ###### :fa-brands fa-android: Android
+        系统设置 - WLAN - 长按已连接的Wi-Fi进入配置找到配置代理选项(各品牌OS界面不同自行判断) - 选择手动
+
+      > [!NOTE|label:代理具体配置内容]
       > 主机名：`<ip>`\
       > 端口：`8001`\
       > 没有用户名和密码
 
-      > 通过专业软件连接代理也是可以的，运营商网络也支持配置代理，不过最方便的还是通过Wi-Fi连接，因为对方不一定懂这些
+      ?> 通过专业软件连接代理也是可以的，运营商网络也支持配置代理，不过最方便的还是通过Wi-Fi连接，因为对方不一定懂这些
 
     - ##### 3. 打开JD APP
 
