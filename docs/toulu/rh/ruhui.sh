@@ -1,8 +1,8 @@
 #!/bin/bash
 ## 一键入会领豆 - 辅助工具脚本
-## Version: 2.2
+## Version: 2.3
 ## Author: SuperManito
-## Modified: 2022-05-24
+## Modified: 2022-06-16
 
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 用 户 定 义 区 域 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ #
 
@@ -21,9 +21,23 @@ fi
 ## 使用帮助
 function Help() {
     if [ -x /usr/local/bin/rh ]; then
-        echo -e "\n${GREEN}使用方法${PLAIN}：在 ${BLUE}rh${PLAIN} 后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 ${BLUE}venderId${PLAIN} 的值，如果是链接则仅支持单个，可使用 ${BLUE}-f${PLAIN} 或 ${BLUE}--force${PLAIN} 参数强制入会\n"
+        echo -e "
+${GREEN}使用方法${PLAIN}：在 ${BLUE}rh${PLAIN} 后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 ${BLUE}venderId${PLAIN}/${BLUE}vendorId${PLAIN} 的值，如果是链接则仅支持单个
+
+ ❋ 可选参数：
+    ${BLUE}-f${PLAIN} | ${BLUE}--force${PLAIN}       强制入会，不判断是否送豆
+    ${BLUE}-c${PLAIN} | ${BLUE}--cookie${PLAIN}      指定账号，参数后需跟账号序号，多个账号用 "," 隔开，账号区间用 "-" 连接，可以用 "%" 表示账号总数
+    ${BLUE}-b${PLAIN} | ${BLUE}--background${PLAIN}  后台运行，不在前台输出脚本执行进度
+    "
     else
-        echo -e "\n${GREEN}使用方法${PLAIN}：使用 ${BLUE}bash${PLAIN} 执行此脚本并在后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 ${BLUE}venderId${PLAIN} 的值，的值，如果是链接则仅支持单个，可使用，可使用 ${BLUE}-f${PLAIN} 或 ${BLUE}--force${PLAIN} 参数强制入会\n"
+        echo -e "
+${GREEN}使用方法${PLAIN}：使用 ${BLUE}bash${PLAIN} 执行此脚本并在后面加上参数，参数内容为 ${BLUE}店铺链接${PLAIN} 或 ${BLUE}venderId${PLAIN}/${BLUE}vendorId${PLAIN} 的值，如果是链接则仅支持单个
+
+ ❋ 可选参数：
+    ${BLUE}-f${PLAIN} | ${BLUE}--force${PLAIN}       强制入会，不判断是否送豆
+    ${BLUE}-c${PLAIN} | ${BLUE}--cookie${PLAIN}      指定账号，参数后需跟账号序号，多个账号用 "," 隔开，账号区间用 "-" 连接，可以用 "%" 表示账号总数
+    ${BLUE}-b${PLAIN} | ${BLUE}--background${PLAIN}  后台运行，不在前台输出脚本执行进度
+    "
     fi
 }
 
@@ -32,7 +46,7 @@ function Main() {
     ## 变量
     LocalTargetDir=$OwnDir/SuperManito_touluyyds/tools
 
-    if [[ ${Force_Mod} == "false" ]]; then
+    if [[ ${FORCE_MOD} == "false" ]]; then
         LocalTargetScript=$LocalTargetDir/jd_OpenCard.js
     else
         LocalTargetScript=$LocalTargetDir/jd_OpenCard_Force.js
@@ -45,7 +59,7 @@ function Main() {
         echo "${InputContent}" | grep "shopId=" -Eq
         ExitStatus_shopId=$?
         ## 判断链接是否含有 venderId
-        echo "${InputContent}" | grep "venderId=" -Eq
+        echo "${InputContent}" | grep "vend.rId=" -Eq
         ExitStatus_venderId=$?
 
         echo "${InputContent}" | grep "^https\?:" -q
@@ -53,7 +67,7 @@ function Main() {
         if [ $? -eq 0 ]; then
             SHOP_ID=$(echo "${InputContent}" | perl -pe "{s|.*shopId=([^& ]+)(?=;?).*|\1|}")
             if [[ $ExitStatus_venderId -eq 0 ]]; then
-                VENDER_ID=$(echo "${InputContent}" | perl -pe "{s|.*venderId=([^& ]+)(?=;?).*|\1|}")
+                VENDER_ID=$(echo "${InputContent}" | perl -pe "{s|.*vend.rId=([^& ]+)(?=;?).*|\1|}")
             else
                 if [[ $ExitStatus_shopId -ne 0 ]]; then
                     echo -e "\n$ERROR 传入链接格式有误，至少需要 ${BLUE}venderId${PLAIN} 或 ${BLUE}shopId${PLAIN} 其中一个！\n"
@@ -94,7 +108,7 @@ function Main() {
     }
     ## 定义相关环境变量
     function ChangeEnv() {
-        if [[ ${Force_Mod} == "false" ]]; then
+        if [[ ${FORCE_MOD} == "false" ]]; then
             grep "^export OPENCARD_BEAN=" $FileConfUser -q
             if [ $? -eq 0 ]; then
                 bash -c "$TaskCmd env edit OPENCARD_BEAN ${MinimumBeans} >/dev/null 2>&1"
@@ -115,7 +129,10 @@ function Main() {
 
     ## 判断执行模式（如果已拉取own仓库就执行本地脚本，否则远程执行脚本）
     if [ -s $LocalTargetScript ]; then
-        bash -c "$TaskCmd $LocalTargetScript now -m -r"
+        local parameter="-r -m"
+        [[ $DESIGNATED_MOD == "true" ]] && parameter+=" -c $DESIGNATED_MOD_VALUE"
+        [[ $BACKGROUND_MOD == "true" ]] && parameter+=" -b"
+        bash -c "$TaskCmd $LocalTargetScript now ${parameter}"
     else
         echo -e "\n$ERROR 开卡脚本不存在，请先拉取或更新仓库！\n" && exit
     fi
@@ -124,23 +141,49 @@ function Main() {
 }
 
 case $# in
+0)
+    Help
+    ;;
 1)
-    Force_Mod="false"
+    FORCE_MOD="false"
     Main "$1"
     ;;
-2)
-    if [[ "$1" == "-f" ]] || [[ "$1" == "--force" ]]; then
-        Force_Mod="true"
-        Main "$2"
-    elif [[ "$2" == "-f" ]] || [[ "$2" == "--force" ]]; then
-        Force_Mod="true"
-        Main "$1"
-    else
-        echo -e "\n$ERROR 参数错误！\n"
-        exit
-    fi
-    ;;
 *)
-    Help
+    content="$1"
+    ## 判断参数
+    while [ $# -gt 1 ]; do
+        case $2 in
+        -f | --force)
+            FORCE_MOD="true"
+            ;;
+        -c | --cookie)
+            if [[ $3 ]]; then
+                echo "$3" | grep -Eq "[a-zA-Z\.;:\<\>/\!@#$^&*|\-_=\+]|\(|\)|\[|\]|\{|\}"
+                if [ $? -eq 0 ]; then
+                    Help
+                    echo -e "$ERROR 检测到无效参数值 ${BLUE}$3${PLAIN} ，语法有误请确认后重新输入！\n"
+                    exit ## 终止退出
+                else
+                    DESIGNATED_MOD="true"
+                    DESIGNATED_MOD_VALUE="$3"
+                    shift
+                fi
+            else
+                Help
+                echo -e "$ERROR 检测到 ${BLUE}$2${PLAIN} 为无效参数，请在该参数后指定运行账号！\n"
+                exit ## 终止退出
+            fi
+            ;;
+        -b | --background)
+            BACKGROUND_MOD="true"
+            ;;
+        *)
+            echo -e "\n$ERROR 参数错误！\n"
+            exit
+            ;;
+        esac
+        shift
+    done
+    Main "$content"
     ;;
 esac
