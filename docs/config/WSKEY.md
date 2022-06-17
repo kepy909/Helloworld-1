@@ -133,7 +133,7 @@
   - npm 切换国内源
 
     ```bash
-    npm config set registry https://registry.npm.taobao.org
+    npm config set registry https://registry.npmmirror.com
     ```
     > 如果没有国际互联网环境建议切换为国内淘宝源
 
