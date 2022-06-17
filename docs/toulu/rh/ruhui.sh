@@ -1,8 +1,8 @@
 #!/bin/bash
 ## 一键入会领豆 - 辅助工具脚本
-## Version: 2.3
+## Version: 2.4
 ## Author: SuperManito
-## Modified: 2022-06-16
+## Modified: 2022-06-18
 
 # ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 用 户 定 义 区 域 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ #
 
@@ -118,9 +118,9 @@ function Main() {
         fi
         grep "^export VENDER_ID=" $FileConfUser -q
         if [ $? -eq 0 ]; then
-            bash -c "$TaskCmd env edit VENDER_ID $VENDER_ID >/dev/null 2>&1"
+            bash -c "$TaskCmd env edit VENDER_ID \"$VENDER_ID\" >/dev/null 2>&1"
         else
-            bash -c "$TaskCmd env add VENDER_ID $VENDER_ID '入会店铺ID' >/dev/null 2>&1"
+            bash -c "$TaskCmd env add VENDER_ID \"$VENDER_ID\" '入会店铺ID' >/dev/null 2>&1"
         fi
     }
 
