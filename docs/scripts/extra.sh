@@ -1,6 +1,6 @@
 #!/bin/bash
-# Update: 2022-06-18
-# Content: del  jd_insight.js jd_xgyl_wx.js jd_try.js jd_mpdzcar.js jd_mpdzcar_game.js jd_mpdzcar_help.js jd_jfcz.js
+# Update: 2022-06-19
+# Content: del  jd_618dfw.js jd_xm618.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -33,10 +33,8 @@
 #  jd_joy_park_task.js             汪汪乐园每日任务
 #  jd_twCard.js                    特务Z集卡
 #  jd_superBrandStar.js            特务Z明星送好礼
-#  jd_joymanor_task.js             JOY庄园每日任
-#  jd_618dfw.js                    大富翁金币
+#  jd_joymanor_task.js             JOY庄园每日任务
 #  jd_tanwei.js                    探味奇遇记
-#  jd_xm618.js                     逛小米618赢千万京豆
 #  jd_jin_tie_xh.js                领金贴
 #  jd_superBrandSign.js            特物Z签到
 
@@ -72,20 +70,16 @@
 
 ##############################  近  期  删  除  ##############################
 
-# jd_insight.js
-# jd_xgyl_wx.js
-# jd_try.js
-# jd_mpdzcar.js
-# jd_mpdzcar_game.js
-# jd_mpdzcar_help.js
-# jd_jfcz.js
+# jd_618dfw.js
+# jd_xm618.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-06-18"
-UpdateContent="del  jd_insight.js jd_xgyl_wx.js jd_try.js jd_mpdzcar.js jd_mpdzcar_game.js jd_mpdzcar_help.js"
+UpdateDate="2022-06-19"
+UpdateContent="del  jd_618dfw.js jd_xm618.js"
+DeleteScripts="jd_618dfw.js jd_xm618.js"
 
 ## 作者
 author_list="Public Dellear star261 yyds KingRan jiulan X1a0He"
@@ -116,7 +110,7 @@ my_scripts_list_Dellear="jd_price.js"
 
 ## star261
 scripts_base_url_star261=https://raw.githubusercontent.com/star261/jd/main/scripts/
-my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js jd_618dfw.js jd_xm618.js"
+my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js"
 
 ## yyds
 scripts_base_url_yyds=https://raw.githubusercontent.com/okyyds/yyds/master/
@@ -307,7 +301,6 @@ for del in ${DeleteCacheFiles}; do
 done
 
 ## 删除脚本和定时
-DeleteScripts="jd_insight.js jd_xgyl_wx.js jd_try.js jd_mpdzcar.js jd_mpdzcar_game.js jd_mpdzcar_help.js jd_jfcz.js"
 for del in ${DeleteScripts}; do
   [ -f $ScriptsDir/$del ] && rm -rf $ScriptsDir/$del && sed -i "/ $TaskCmd $(echo "$del" | awk -F\. '{print $1}' | perl -pe "{s|^jd_||; s|^jx_||; s|^jr_||;}")/d" $ListCrontabUser
 done
