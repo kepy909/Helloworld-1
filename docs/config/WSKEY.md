@@ -1,106 +1,114 @@
 # :fa-regular fa-database: WSKEY
-- WSKEY 是**移动端APP**特有的值，使用以后再也不用月月喊人更新账号了，本项目拥有最新版本且全网最稳定的转换脚本
+- wskey 是**移动端APP**特有的值，使用以后再也不用经常喊人更新账号了，本项目拥有最新版本且全网最稳定的转换脚本
 
 > [!ATTENTION]
-> **注销登录**（在抓取WSKEY设备的APP中手动操作退出账号登录）、**修改密码**会导致其失效\
+> **注销登录**（在抓取设备的APP中手动操作退出账号登录）、**修改密码**会导致其失效\
 > 若想在APP中切换账号直接卸载APP即可，极少数情况下存在被官方主动踢下线的可能性
 
-> 目前 WSKEY 的有效期为半年，配置后可转换生成有效期为 `24` 个小时的 `pt_key`
+> 目前 WSKEY 的有效期为半年起步，具体有效时间暂时未知，配置后可转换生成有效期为 `24` 个小时的 `pt_key`
 
 > [!WARNING|label:声明]
 > 转换脚本是本项目中唯一的加密脚本位于 **utils/UpdateCookie.js**，为了防止被滥用已局部加密关于**获取签名**部分的代码\
 > 该转换脚本为**本地转换**，没有加密转换部分的代码，其它任何通过在线获取签名的转换脚本均存在账号泄露的风险\
 > 作者承诺该脚本乃至整个项目均没有任何上传行为，可自行抓包验证随时接受检验，我们始终保留对造谣者追究的权利
 
-- 目前推荐定时设置
+## 配置方法
 
-  > 项目已配置定时任务但默认被注释，如需使用请自行取消注释
+- ### 基础配置 <!-- {docsify-ignore} -->
 
-  ```cron
-  <自定义分钟> 1,9,17 * * * sleep $((${RANDOM} % 56)) && task cookie update >/dev/null 2>&1
-  ```
-  > [!TIP]
-  > 更新频率由您的账号数量决定，目前建议每天更新 `三` 次即每 `8` 小时更新一次
+  > [!NOTE|label:面板入口]
+  > 编辑配置 - 账号配置
 
-  > [!ATTENTION]
-  > 应合理规划该脚本的定时，部分脚本执行时间过长可能导致ck在执行期间过期失效，应在这类脚本执行前进行更新，尤其号多者
+  ?> 1. 建议通过面板进行编辑，有格式检测可以减少配置出错\
+    2. 注意 `pt_pin` 和 `ws_key` 填入的是对应的值，不要把格式和标点符号带进去
 
-- 功能设置
+  - #### 编辑位于 **config** 目录下的 **account.json** 配置文件
 
-  - 更新账号推送通知功能
-
-    ```bash
-    EnableCookieUpdateNotify=""
+    ```json
+    [
+      {
+        "pt_pin": "user_α",
+        "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "remarks": "阿尔法",
+        "phone": "",
+        "config": {
+          "ep": {}
+        }
+      },
+      {
+        "pt_pin": "user_β",
+        "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "remarks": "贝塔",
+        "phone": "",
+        "config": {
+          "ep": {}
+        }
+      },
+      {
+        "pt_pin": "",
+        "ws_key": "",
+        "remarks": "",
+        "phone": "",
+        "config": {
+          "ep": {}
+        }
+      }
+    ]
     ```
-    > 控制当使用 WSKEY 更新 Cookie 后是否推送更新结果内容，默认不推送，如想要接收推送通知提醒请赋值为 `true`
 
-  - 更新账号异常告警功能
+    > [!NOTE]
+    > `remarks` 通知备注，会在适配脚本的推送消息中将用户名昵称换成备注名称
+    >
+    > `phone` 联系方式备注，显示在主配置文件账号变量下方备注内容
+    >
+    > `ep` 设备信息，对于目前来说可填可不填没有实际意义，一般出现在请求的 **Body** 中
+    >
+    > `pt_pin` 用户名，目前在APP的部分请求中已被加密可能无法通过抓包有效获取，可前往账号设置进行查看\
+    > 如果用户名含有中文汉字需转换成 `UrlEncode`，面板自带转换工具，入口位于页面上方按钮
 
-    ```bash
-    EnableCookieUpdateFailureNotify=""
+  - ### 定时设置 <!-- {docsify-ignore} -->
+
+    ?> 项目已配置定时任务但默认被注释，如需使用请自行取消注释
+
+    ```cron
+    <自定义分钟> 1,9,17 * * * sleep $((${RANDOM} % 56)) && task cookie update >/dev/null 2>&1
     ```
-    > 控制当使用 WSKEY 更新 Cookie 失败后是否推送通知提醒，以用于快速处理失效的 WSKEY，默认不推送，如想要接收推送通知提醒请赋值为 `true`
+    > [!TIP]
+    > 更新频率由您的账号数量决定，目前建议每天更新 `三` 次即每 `8` 小时更新一次
 
+    > [!ATTENTION]
+    > 应合理规划该脚本的定时，部分脚本执行时间过长可能导致ck在执行期间过期失效，应在这类脚本执行前进行更新，尤其号多者
 
-## 抓包获取方式
+  - ### 功能设置 <!-- {docsify-ignore} -->
 
-  - :fa-brands fa-apple: iOS/iPadOS
+    - #### 更新账号推送通知功能
+
+      ```bash
+      EnableCookieUpdateNotify=""
+      ```
+      > 控制当使用 WSKEY 更新 Cookie 后是否推送更新结果内容，默认不推送，如想要接收推送通知提醒请赋值为 `true`
+
+    - #### 更新账号异常告警功能
+
+      ```bash
+      EnableCookieUpdateFailureNotify=""
+      ```
+      > 控制当使用 WSKEY 更新 Cookie 失败后是否推送通知提醒，以用于快速处理失效的 WSKEY，默认不推送，如想要接收推送通知提醒请赋值为 `true`
+
+***
+
+## 抓包获取
+
+  - ### :fa-brands fa-apple: iOS/iPadOS <!-- {docsify-ignore} -->
 
     > 安装：从 :fa-brands fa-app-store-ios: App Store 下载 [Stream](https://apps.apple.com/cn/app/stream/id1312141691) ，然后打开 Stream - HTTPS抓包 - 根据提示安装证书并信任\
     > 抓包：在 Stream 主界面点击开始抓包，打开 JD 主 APP 并从底栏中点击我的（如果后台已有则需要退出并重新打开一个新的），然后返回 Stream - 抓包历史 - 按域名 - `api.m.jd.com` \
     > 方法：从列出来的请求列表中点击任意一个请求进入抓包详情界面进行查看，在请求（顶栏） - 请求头部 - 内容中找到 `Cookies:` ，在其中寻找 wskey\
     > ㅤㅤㅤ 一般 Cookies 内容的第一行就是，wskey 不是所有请求里都有如果没有就换一个继续找
   
-  - :fa-brands fa-android: Android
+  - ### :fa-brands fa-android: Android <!-- {docsify-ignore} -->
 
     > 建议通过 HttpCanary 小黄鸟 App 进行抓包，方式与上方苹果设备类似，不过限制较多导致门槛较高，建议使用下方教程中的 AnyProxy 协助抓取
-
-## 配置方法
-
-> [!NOTE|label:面板入口]
-> 编辑配置 - 账号配置
-
-?> 1. 建议通过面板进行编辑，有格式检测可以减少配置出错\
-  2. 注意 `pt_pin` 和 `ws_key` 填入的是对应的值，不要把格式和标点符号带进去
-
-- 编辑位于 **config** 目录下的 **account.json** 配置文件
-
-  ```json
-  [
-    {
-      "pt_pin": "user_α",
-      "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "remarks": "阿尔法",
-      "config": {
-        "ep": {}
-      }
-    },
-    {
-      "pt_pin": "user_β",
-      "ws_key": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "remarks": "贝塔",
-      "config": {
-        "ep": {}
-      }
-    },
-    {
-      "pt_pin": "",
-      "ws_key": "",
-      "remarks": "",
-      "config": {
-        "ep": {}
-      }
-    }
-  ]
-  ```
-
-  > [!NOTE]
-  > `remarks` 是通知备注，会在适配脚本的推送消息中将用户名昵称换成备注名称
-  >
-  > `ep` 是设备信息，对于目前来说可填可不填没有实际意义，一般出现在请求的 **Body** 中
-  >
-  > `pt_pin` 是用户名，目前在APP的部分请求中已被加密可能无法通过抓包有效获取，可前往账号设置进行查看\
-  > 如果用户名含有中文汉字需转换成 `UrlEncode`，面板自带转换工具，入口：`账号配置 - URL编码/解码`
 
 ***
 
@@ -112,25 +120,25 @@
 
   ?> 如果已安装则忽略该步骤
 
-  - 安装 Nodejs
+  - #### 安装 Nodejs
 
     > 由于 NodeSource 没有国内源，下载速度可能较慢，会附带安装 **npm**
 
-    - Debian/Ubuntu/Kali
+    - ##### Debian/Ubuntu/Kali
 
       ```bash
       curl -sL https://deb.nodesource.com/setup_16.x | bash -
       apt-get install -y nodejs
       ```
 
-    - RHEL/CentOS/Fedora
+    - ##### RHEL/CentOS/Fedora
 
       ```bash
       curl -sL https://rpm.nodesource.com/setup_16.x | bash -
       yum install -y nodejs
       ```
   
-  - npm 切换国内源
+  - #### npm 切换国内源
 
     ```bash
     npm config set registry https://registry.npmmirror.com
@@ -139,20 +147,20 @@
 
 - ### 安装并配置 AnyProxy <!-- {docsify-ignore} -->
 
-  - 安装
+  - #### 安装
 
     ```bash
     npm install -g anyproxy
     ```
 
-  - 生成证书
+  - #### 生成证书
 
     ```bash
     anyproxy-ca
     ```
     > 一路回车
 
-  - 启动服务
+  - #### 启动服务
 
     ```bash
     anyproxy --intercept

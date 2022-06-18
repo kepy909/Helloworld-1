@@ -14,7 +14,6 @@
 
 - <i class="fa-duotone fa-gear"></i> 配置
 
-  - [&nbsp;<i class="fa-regular fa-database"></i>&nbsp; WSKEY](config/WSKEY.md)
   - [<i class="fa-regular fa-house-window"></i>&nbsp; 主要仓库](config/主要仓库.md)
   - [<i class="fa-regular fa-diagram-sankey"></i>&nbsp; 扩展仓库](config/扩展仓库.md)
   - [<i class="fa-regular fa-diagram-subtask"></i>&nbsp; 扩展脚本](config/扩展脚本.md)
@@ -22,6 +21,7 @@
   - [<i class="fa-regular fa-user-plus"></i>&nbsp; 账号互助](config/账号互助.md)
   - [<i class="fa-regular fa-user-astronaut"></i>&nbsp; 电报机器人](config/电报机器人.md)
   - [<i class="fa-regular fa-paper-plane"></i>&nbsp; 自定义脚本](config/自定义脚本.md)
+  - [&nbsp;<i class="fa-regular fa-database"></i>&nbsp; WSKEY](config/WSKEY.md)
 
 - <i class="fa-solid fa-wheelchair-move"></i> 使用
 
