@@ -1,6 +1,6 @@
 #!/bin/bash
 # Update: 2022-06-19
-# Content: del  jd_618dfw.js jd_xm618.js
+# Content: del  jd_618dfw.js jd_xm618.js jd_tanwei.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -34,7 +34,6 @@
 #  jd_twCard.js                    特务Z集卡
 #  jd_superBrandStar.js            特务Z明星送好礼
 #  jd_joymanor_task.js             JOY庄园每日任务
-#  jd_tanwei.js                    探味奇遇记
 #  jd_jin_tie_xh.js                领金贴
 #  jd_superBrandSign.js            特物Z签到
 
@@ -72,14 +71,15 @@
 
 # jd_618dfw.js
 # jd_xm618.js
+# jd_tanwei.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
 UpdateDate="2022-06-19"
-UpdateContent="del  jd_618dfw.js jd_xm618.js"
-DeleteScripts="jd_618dfw.js jd_xm618.js"
+UpdateContent="del  jd_618dfw.js jd_xm618.js jd_tanwei.js"
+DeleteScripts="jd_618dfw.js jd_xm618.js jd_tanwei.js"
 
 ## 作者
 author_list="Public Dellear star261 yyds KingRan jiulan X1a0He"
@@ -118,7 +118,7 @@ my_scripts_list_yyds="JDSignValidator.js jd_try_notify.py jd_morningSc.js jd_mon
 
 ## KingRan
 scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_beauty.js jd_xgyl_wx.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_tanwei.js jd_superBrandSign.js"
+my_scripts_list_KingRan="sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_beauty.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js jd_superBrandSign.js"
 
 ## jiulan
 scripts_base_url_jiulan=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/
