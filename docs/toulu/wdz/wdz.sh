@@ -161,7 +161,7 @@ function Get_Activity_Info() {
             -H 'Sec-Fetch-Dest: empty' \
             -H 'Accept-Language: zh-CN,zh;q=0.9' \
             -H "Cookie: LZ_TOKEN_KEY=${LZ_TOKEN_KEY}; LZ_TOKEN_VALUE=${LZ_TOKEN_VALUE}" \
-            --data-raw "activityId=${activityId}" | jq .data.venderIds | sed "s/\"//g; s/,/\&/g" 2>/dev/null
+            --data-raw "activityId=${activityId}" | jq .data.venderIds | sed "s/\"//g; s/,/\@/g" 2>/dev/null
     }
 
     ## 随机定义一个UA
