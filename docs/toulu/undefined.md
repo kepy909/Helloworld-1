@@ -388,6 +388,6 @@
   - #### 定时配置
 
     ```cron
-    16 16,17,18 * * * task /jd/own/SuperManito_touluyyds/tools/jd_mpdz.js
+    16 16,17,18 * * * task /jd/own/SuperManito_touluyyds/tools/jd_mpdzcarJ.js
     ```
     > 脚本容易 493 黑IP，不知道什么时候会解开
