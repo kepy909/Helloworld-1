@@ -1,6 +1,7 @@
 #!/bin/bash
-# Update: 2022-06-26
-# Content: del  jd_superBrandSign.js
+# Update: 2022-06-28
+# Content: add  jd_supermh.js(京东超级盲盒)
+#          del  jd_super_redrain.js jd_half_redrain.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -11,8 +12,6 @@
 #  jd_try_notify.py                京东试用待领取通知
 #  jd_unsubscriLive.js             取关所有主播
 #  jd_unsubscribe_xh.js            取关店铺和商品
-#  jd_super_redrain.js             整点京豆雨
-#  jd_half_redrain.js              半点京豆雨
 #  jd_shop_sign.js                 店铺签到                 (内置店铺 Token，定期更新)
 #  jd_productZ4Brand.js            特物Z
 #  jd_sign_graphics.js             京东签到翻牌
@@ -35,6 +34,7 @@
 #  jd_superBrandStar.js            特务Z明星送好礼
 #  jd_joymanor_task.js             JOY庄园每日任务
 #  jd_jin_tie_xh.js                领金贴
+#  jd_supermh.js                   京东超级盲盒
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -68,27 +68,16 @@
 
 ##############################  近  期  删  除  ##############################
 
-# jd_superBrandSign.js
+# jd_super_redrain.js
+# jd_half_redrain.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-06-26"
-UpdateContent="del  jd_superBrandSign.js"
-DeleteScripts="jd_superBrandSign.js"
-
-## 作者
-author_list="Public Dellear star261 yyds KingRan jiulan X1a0He"
-author_name=(
-  Public
-  Dellear
-  star261
-  yyds
-  KingRan
-  jiulan
-  X1a0He
-)
+UpdateDate="2022-06-28"
+UpdateContent="add  jd_supermh.js(京东超级盲盒)${NewLine}del  jd_super_redrain.js jd_half_redrain.js"
+DeleteScripts="jd_super_redrain.js jd_half_redrain.js"
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
@@ -96,62 +85,90 @@ if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; the
 else
   ProxyJudge="false"
 fi
+GitHubRawUrl="https://raw.githubusercontent.com"
+## 作者
+author_list="Public star261 yyds KingRan jiulan X1a0He"
+author_name=(
+  Public
+  star261
+  yyds
+  KingRan
+  jiulan
+  X1a0He
+)
 
-## Public
-scripts_base_url_Public=https://supermanito.github.io/Helloworld/scripts/
-my_scripts_list_Public="jd_shop_sign.js jd_super_redrain.js jd_half_redrain.js"
-
-## Dellear
-scripts_base_url_Dellear=https://raw.githubusercontent.com/Dellear/lost/main/extra/
-my_scripts_list_Dellear="jd_price.js"
+## SuperManito
+scripts_base_url_Public="https://supermanito.github.io/Helloworld/scripts/"
+my_scripts_array_Public=(
+  jd_shop_sign.js
+  jd_price.js
+)
 
 ## star261
-scripts_base_url_star261=https://raw.githubusercontent.com/star261/jd/main/scripts/
-my_scripts_list_star261="jd_productZ4Brand.js jd_fan.js jd_twCard.js"
+scripts_base_url_star261="${GitHubRawUrl}/star261/jd/main/scripts/"
+my_scripts_array_star261=(
+  jd_productZ4Brand.js
+  jd_fan.js
+  jd_twCard.js
+)
 
 ## yyds
-scripts_base_url_yyds=https://raw.githubusercontent.com/okyyds/yyds/master/
-my_scripts_list_yyds="JDSignValidator.js jd_try_notify.py jd_morningSc.js jd_moneyTree_heip.js jd_dwapp.js jd_unsubscriLive.js jd_nnfls.js jd_gold_sign.js jd_beauty_ex.js jd_wq_wxsign.js jd_wyw.js jd_ddly.js jd_speed_redpocke.js"
+scripts_base_url_yyds="${GitHubRawUrl}/okyyds/yyds/master/"
+my_scripts_array_yyds=(
+  JDSignValidator.js
+  jd_try_notify.py
+  jd_morningSc.js
+  jd_moneyTree_heip.js
+  jd_dwapp.js
+  jd_unsubscriLive.js
+  jd_nnfls.js
+  jd_gold_sign.js
+  jd_beauty_ex.js
+  jd_wq_wxsign.js
+  jd_wyw.js
+  jd_ddly.js
+  jd_speed_redpocke.js
+)
 
 ## KingRan
-scripts_base_url_KingRan=https://raw.githubusercontent.com/KingRan/KR/main/
-my_scripts_list_KingRan="sign_graphics_validate.js JDJRValidator_Pure.js jd_wish.js jd_beauty.js jd_joy_park_task.js jd_joymanor_task.js jd_superBrandStar.js jd_sign_graphics.js"
+scripts_base_url_KingRan="${GitHubRawUrl}/KingRan/KR/main/"
+my_scripts_array_KingRan=(
+  sign_graphics_validate.js
+  JDJRValidator_Pure.js
+  jd_wish.js
+  jd_beauty.js
+  jd_joy_park_task.js
+  jd_joymanor_task.js
+  jd_superBrandStar.js
+  jd_sign_graphics.js
+  jd_supermh.js
+)
 
 ## jiulan
-scripts_base_url_jiulan=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/
-my_scripts_list_jiulan="jd_txjf.js"
+scripts_base_url_jiulan="${GitHubRawUrl}/jiulan/platypus/main/scripts/"
+my_scripts_array_jiulan=(
+  jd_txjf.js
+)
 
 ## X1a0He
-scripts_base_url_X1a0He=https://raw.githubusercontent.com/X1a0He/jd_scripts_fixed/main/
-my_scripts_list_X1a0He="jd_unsubscribe_xh.js jd_cleancart.js jd_jin_tie_xh.js"
+scripts_base_url_X1a0He="${GitHubRawUrl}/X1a0He/jd_scripts_fixed/main/"
+my_scripts_array_X1a0He=(
+  jd_unsubscribe_xh.js
+  jd_cleancart.js
+  jd_jin_tie_xh.js
+)
 
 ## 青蛙
-scripts_base_url_smiek2221=https://raw.githubusercontent.com/smiek2121/scripts/master/
-my_scripts_list_smiek2221=""
+scripts_base_url_smiek2221="${GitHubRawUrl}/smiek2121/scripts/master/"
+my_scripts_array_smiek2221=()
 
 ## ccwav
-scripts_base_url_ccwav=https://raw.githubusercontent.com/ccwav/QLScript2/main/ModScript/
-my_scripts_list_ccwav=""
+scripts_base_url_ccwav="${GitHubRawUrl}/ccwav/QLScript2/main/ModScript/"
+my_scripts_array_ccwav=()
 
 ## 小埋
-scripts_base_url_duck=https://raw.githubusercontent.com/okyyds/duck/master/
-my_scripts_list_duck=""
-
-## zero205
-scripts_base_url_zero205=https://raw.githubusercontent.com/zero205/JD_tencent_scf/main/
-my_scripts_list_zero205=""
-
-## he1pu
-scripts_base_url_he1pu=https://raw.githubusercontent.com/he1pu/JDHelp/main/
-my_scripts_list_he1pu=""
-
-## cdle
-scripts_base_url_cdle=https://raw.githubusercontent.com/cdle/carry/main/
-my_scripts_list_cdle=""
-
-## curtinlv
-scripts_base_url_curtinlv=https://raw.githubusercontent.com/curtinlv/JD-Script/main/
-my_scripts_list_curtinlv=""
+scripts_base_url_duck="${GitHubRawUrl}/okyyds/duck/master/"
+my_scripts_array_duck=()
 
 ##############################  主 命 令  ##############################
 cd $RootDir
@@ -173,7 +190,8 @@ rand() {
 
 index=0
 for author in $author_list; do
-  eval scripts_list=\$my_scripts_list_${author}
+  eval target_array_name=my_scripts_array_${author}
+  eval scripts_array=\"\${${target_array_name}[@]}\"
   eval url_list=\$scripts_base_url_${author}
   eval author="author_name[${index}]"
 
@@ -216,7 +234,7 @@ for author in $author_list; do
   echo -e "[${YELLOW}更新${PLAIN}] ${!author} ${download_judge}"
   [[ ${repository_url} ]] && echo -e "[${YELLOW}仓库${PLAIN}] $repository_url"
 
-  for js in $scripts_list; do
+  for js in ${scripts_array}; do
     croname=""
     script_cron_standard=""
 
