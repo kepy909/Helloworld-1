@@ -209,10 +209,15 @@ for author in $author_list; do
   repository_platform=""
   reformat_url=""
   if [[ ${repository_judge} == "github" ]]; then
-    repository_platform="https://github.com"
-    repository_branch=$(echo $url_list | awk -F '.com' '{print$NF}' | sed 's/.$//' | awk -F '/' '{print$4}')
-    reformat_url=$(echo $url_list | awk -F '.com' '{print$NF}' | perl -pe "{s|.$||g; s|$repository_branch|tree\/$repository_branch|g}")
-    [[ ${ProxyJudge} == true ]] && download_judge="(代理)"
+    echo $url_list | grep -Eq "github\.io"
+    if [ $? -eq 0 ]; then
+      repository_platform="https://$(echo $url_list | awk -F '/' '{print$3}')/$(echo $url_list | awk -F '/' '{print$4}')"
+    else
+      repository_platform="https://github.com"
+      repository_branch=$(echo $url_list | awk -F '.com' '{print$NF}' | sed 's/.$//' | awk -F '/' '{print$4}')
+      reformat_url=$(echo $url_list | awk -F '.com' '{print$NF}' | perl -pe "{s|.$||g; s|$repository_branch|tree\/$repository_branch|g}")
+      [[ ${ProxyJudge} == true ]] && download_judge="(代理)"
+    fi
   elif [[ ${repository_judge} == "fastgit" ]]; then
     repository_platform="https://github.com"
     repository_branch=$(echo $url_list | perl -pe "{s|raw\.fastgit\.org|raw\.githubusercontent\.com|g}" | awk -F '.com' '{print$NF}' | sed 's/.$//' | awk -F '/' '{print$4}')
@@ -227,7 +232,7 @@ for author in $author_list; do
     reformat_url=$(echo $url_list | awk -F '/gh' '{print$NF}' | perl -pe "{s|.$||g; s|\@|\/tree\/|g}")
     download_judge="(代理)"
   else
-    repository_platform="Unknown"
+    repository_platform=""
   fi
   repository_url="${repository_platform}${reformat_url}"
 
