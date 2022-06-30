@@ -1,7 +1,7 @@
 #!/bin/bash
-# Update: 2022-06-28
-# Content: add  jd_supermh.js(京东超级盲盒)
-#          del  jd_super_redrain.js jd_half_redrain.js
+# Update: 2022-06-30
+# Content: add  jd_insight_Mod.js(京洞察问卷通知)
+#          del  jd_supermh.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -34,7 +34,7 @@
 #  jd_superBrandStar.js            特务Z明星送好礼
 #  jd_joymanor_task.js             JOY庄园每日任务
 #  jd_jin_tie_xh.js                领金贴
-#  jd_supermh.js                   京东超级盲盒
+#  jd_insight_Mod.js               京洞察问卷通知
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -68,16 +68,15 @@
 
 ##############################  近  期  删  除  ##############################
 
-# jd_super_redrain.js
-# jd_half_redrain.js
+# jd_supermh.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-06-28"
-UpdateContent="add  jd_supermh.js(京东超级盲盒)${NewLine}del  jd_super_redrain.js jd_half_redrain.js"
-DeleteScripts="jd_super_redrain.js jd_half_redrain.js"
+UpdateDate="2022-06-30"
+UpdateContent="add  jd_insight_Mod.js(京洞察问卷通知)${NewLine}del  jd_supermh.js"
+DeleteScripts="jd_supermh.js"
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
@@ -87,7 +86,7 @@ else
 fi
 GitHubRawUrl="https://raw.githubusercontent.com"
 ## 作者
-author_list="Public star261 yyds KingRan jiulan X1a0He"
+author_list="Public star261 yyds KingRan jiulan X1a0He ccwav"
 author_name=(
   Public
   star261
@@ -95,6 +94,7 @@ author_name=(
   KingRan
   jiulan
   X1a0He
+  ccwav
 )
 
 ## SuperManito
@@ -158,13 +158,15 @@ my_scripts_array_X1a0He=(
   jd_jin_tie_xh.js
 )
 
+## ccwav
+scripts_base_url_ccwav="${GitHubRawUrl}/ccwav/QLScript2/main/ModScript/"
+my_scripts_array_ccwav=(
+  jd_insight_Mod.js
+)
+
 ## 青蛙
 scripts_base_url_smiek2221="${GitHubRawUrl}/smiek2121/scripts/master/"
 my_scripts_array_smiek2221=()
-
-## ccwav
-scripts_base_url_ccwav="${GitHubRawUrl}/ccwav/QLScript2/main/ModScript/"
-my_scripts_array_ccwav=()
 
 ## 小埋
 scripts_base_url_duck="${GitHubRawUrl}/okyyds/duck/master/"
