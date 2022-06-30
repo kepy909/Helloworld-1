@@ -141,7 +141,6 @@ my_scripts_array_KingRan=(
   jd_joymanor_task.js
   jd_superBrandStar.js
   jd_sign_graphics.js
-  jd_supermh.js
 )
 
 ## jiulan
