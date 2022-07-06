@@ -1,7 +1,6 @@
 #!/bin/bash
-# Update: 2022-06-30
-# Content: add  jd_insight_Mod.js(京洞察问卷通知)
-#          del  jd_supermh.js
+# Update: 2022-07-06
+# Content: add  jd_shangou.js(闪购签到有礼)
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -35,6 +34,7 @@
 #  jd_joymanor_task.js             JOY庄园每日任务
 #  jd_jin_tie_xh.js                领金贴
 #  jd_insight_Mod.js               京洞察问卷通知
+#  jd_shangou.js                   闪购签到有礼
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -68,15 +68,13 @@
 
 ##############################  近  期  删  除  ##############################
 
-# jd_supermh.js
-
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-06-30"
-UpdateContent="add  jd_insight_Mod.js(京洞察问卷通知)${NewLine}del  jd_supermh.js"
-DeleteScripts="jd_supermh.js"
+UpdateDate="2022-07-06"
+UpdateContent="add  jd_shangou.js(闪购签到有礼)"
+DeleteScripts=""
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
@@ -141,6 +139,7 @@ my_scripts_array_KingRan=(
   jd_joymanor_task.js
   jd_superBrandStar.js
   jd_sign_graphics.js
+  jd_shangou.js
 )
 
 ## jiulan
