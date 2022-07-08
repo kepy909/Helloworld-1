@@ -1,6 +1,7 @@
 #!/bin/bash
-# Update: 2022-07-06
-# Content: add  jd_shangou.js(闪购签到有礼)
+# Update: 2022-07-08
+# Content: add  jd_ry.js(7.6-7.31 荣耀7月搜索有奖)
+#          del  jd_beauty_ex.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -19,7 +20,6 @@
 #  jd_dwapp.js                     积分换话费
 #  jd_nnfls.js                     牛牛福利社
 #  jd_gold_sign.js                 京东金榜签到
-#  jd_beauty_ex.js                 美丽研究院兑换京豆
 #  jd_txjf.js                      通讯积分
 #  jd_wish.js                      众筹许愿池
 #  jd_wq_wxsign.js                 微信签到领红包
@@ -35,6 +35,7 @@
 #  jd_jin_tie_xh.js                领金贴
 #  jd_insight_Mod.js               京洞察问卷通知
 #  jd_shangou.js                   闪购签到有礼
+#  jd_ry.js                        7.6-7.31 荣耀7月搜索有奖
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -68,13 +69,15 @@
 
 ##############################  近  期  删  除  ##############################
 
+# jd_beauty_ex.js
+
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-07-06"
-UpdateContent="add  jd_shangou.js(闪购签到有礼)"
-DeleteScripts=""
+UpdateDate="2022-07-08"
+UpdateContent="add  jd_ry.js(7.6-7.31 荣耀7月搜索有奖)${NewLine}del  jd_beauty_ex.js"
+DeleteScripts="JDJRValidator_Pure.js jd_beauty_ex.js"
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
@@ -121,7 +124,6 @@ my_scripts_array_yyds=(
   jd_unsubscriLive.js
   jd_nnfls.js
   jd_gold_sign.js
-  jd_beauty_ex.js
   jd_wq_wxsign.js
   jd_wyw.js
   jd_ddly.js
@@ -132,7 +134,6 @@ my_scripts_array_yyds=(
 scripts_base_url_KingRan="${GitHubRawUrl}/KingRan/KR/main/"
 my_scripts_array_KingRan=(
   sign_graphics_validate.js
-  JDJRValidator_Pure.js
   jd_wish.js
   jd_beauty.js
   jd_joy_park_task.js
@@ -140,6 +141,7 @@ my_scripts_array_KingRan=(
   jd_superBrandStar.js
   jd_sign_graphics.js
   jd_shangou.js
+  jd_ry.js
 )
 
 ## jiulan
