@@ -1,7 +1,6 @@
 #!/bin/bash
-# Update: 2022-07-08
-# Content: add  jd_ry.js(7.6-7.31 荣耀7月搜索有奖)
-#          del  jd_beauty_ex.js
+# Update: 2022-07-16
+# Content: add  jd_superBrandzd.js(特务Z战队)
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -36,6 +35,7 @@
 #  jd_insight_Mod.js               京洞察问卷通知
 #  jd_shangou.js                   闪购签到有礼
 #  jd_ry.js                        7.6-7.31 荣耀7月搜索有奖
+#  jd_superBrandzd.js              特务Z战队
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -75,9 +75,9 @@
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-07-08"
-UpdateContent="add  jd_ry.js(7.6-7.31 荣耀7月搜索有奖)${NewLine}del  jd_beauty_ex.js"
-DeleteScripts="JDJRValidator_Pure.js jd_beauty_ex.js"
+UpdateDate="2022-07-16"
+UpdateContent="add  jd_superBrandzd.js(特务Z战队)"
+DeleteScripts=""
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
@@ -142,6 +142,7 @@ my_scripts_array_KingRan=(
   jd_sign_graphics.js
   jd_shangou.js
   jd_ry.js
+  jd_superBrandzd.js
 )
 
 ## jiulan
