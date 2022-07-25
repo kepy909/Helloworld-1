@@ -1,6 +1,7 @@
 #!/bin/bash
-# Update: 2022-07-16
-# Content: add  jd_superBrandzd.js(特务Z战队)
+# Update: 2022-07-25
+# Content: add  jd_jrsign.js(京东金融双签)
+#          del  jd_fan.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -23,7 +24,6 @@
 #  jd_wish.js                      众筹许愿池
 #  jd_wq_wxsign.js                 微信签到领红包
 #  jd_wyw.js                       玩一玩成就
-#  jd_fan.js                       粉丝互动
 #  jd_ddly.js                      东东乐园
 #  jd_speed_redpocke.js            京东极速版红包
 #  jd_beauty.js                    美丽研究院修复版
@@ -36,6 +36,7 @@
 #  jd_shangou.js                   闪购签到有礼
 #  jd_ry.js                        7.6-7.31 荣耀7月搜索有奖
 #  jd_superBrandzd.js              特务Z战队
+#  jd_jrsign.js                    京东金融双签
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -69,15 +70,15 @@
 
 ##############################  近  期  删  除  ##############################
 
-# jd_beauty_ex.js
+# jd_fan.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-07-16"
-UpdateContent="add  jd_superBrandzd.js(特务Z战队)"
-DeleteScripts=""
+UpdateDate="2022-07-25"
+UpdateContent="add  jd_jrsign.js(京东金融双签)${NewLine}del  jd_fan.js"
+DeleteScripts="jd_fan.js"
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
@@ -106,11 +107,10 @@ my_scripts_array_Public=(
 )
 
 ## star261
-scripts_base_url_star261="${GitHubRawUrl}/star261/jd/main/scripts/"
+scripts_base_url_star261="${GitHubRawUrl}/star261/jd/main/tw/"
 my_scripts_array_star261=(
-  jd_productZ4Brand.js
-  jd_fan.js
-  jd_twCard.js
+  tw/jd_productZ4Brand.js
+  tw/jd_twCard.js
 )
 
 ## yyds
@@ -318,10 +318,10 @@ done
 ##############################  自  定  义  命  令  ##############################
 
 ## 删除垃圾文件
-DeleteCacheFiles=""
-for del in ${DeleteCacheFiles}; do
-  [ -f $ScriptsDir/$del ] && rm -rf $ScriptsDir/$del
-done
+# DeleteCacheFiles=""
+# for del in ${DeleteCacheFiles}; do
+#   [ -f $ScriptsDir/$del ] && rm -rf $ScriptsDir/$del
+# done
 
 ## 删除脚本和定时
 for del in ${DeleteScripts}; do
