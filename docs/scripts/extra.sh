@@ -108,8 +108,8 @@ my_scripts_array_Public=(
 ## star261
 scripts_base_url_star261="${GitHubRawUrl}/star261/jd/main/tw/"
 my_scripts_array_star261=(
-  tw/jd_productZ4Brand.js
-  tw/jd_twCard.js
+  jd_productZ4Brand.js
+  jd_twCard.js
 )
 
 ## yyds
@@ -140,8 +140,6 @@ my_scripts_array_KingRan=(
   jd_superBrandStar.js
   jd_sign_graphics.js
   jd_shangou.js
-  jd_ry.js
-  jd_superBrandzd.js
   jd_daily_lottery.js
 )
 
