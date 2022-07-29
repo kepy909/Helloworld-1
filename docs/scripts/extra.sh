@@ -1,5 +1,5 @@
 #!/bin/bash
-# Update: 2022-07-27
+# Update: 2022-07-29
 # Content: add  jd_daily_lottery.js(京东快递-每日抽奖)
 #          del  jd_fan.js jd_superBrandzd.js jd_ry.js
 
@@ -76,7 +76,7 @@
 
 NewLine="\n          "
 UpdateDate="2022-07-27"
-UpdateContent="add  jd_daily_lottery.js(京东快递-每日抽奖)"
+UpdateContent="add  jd_daily_lottery.js(京东快递-每日抽奖)${NewLine}del  jd_fan.js jd_superBrandzd.js jd_ry.js"
 DeleteScripts="jd_fan.js jd_superBrandzd.js jd_ry.js"
 
 ## 定义下载代理 (非内置功能)
