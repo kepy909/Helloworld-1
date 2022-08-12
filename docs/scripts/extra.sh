@@ -1,7 +1,7 @@
 #!/bin/bash
-# Update: 2022-07-29
-# Content: add  jd_daily_lottery.js(京东快递-每日抽奖)
-#          del  jd_fan.js jd_superBrandzd.js jd_ry.js
+# Update: 2022-08-12
+# Content: add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)
+#          del  jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -13,7 +13,6 @@
 #  jd_unsubscriLive.js             取关所有主播
 #  jd_unsubscribe_xh.js            取关店铺和商品
 #  jd_shop_sign.js                 店铺签到                 (内置店铺 Token，定期更新)
-#  jd_productZ4Brand.js            特物Z
 #  jd_sign_graphics.js             京东签到翻牌
 #  jd_morningSc.js                 早起赢现金               (活动入口在京东汽车-瓜分万元，支付一元才能参与活动)
 #  jd_moneyTree_heip.js            京东摇钱树助力
@@ -28,14 +27,17 @@
 #  jd_speed_redpocke.js            京东极速版红包
 #  jd_beauty.js                    美丽研究院修复版
 #  jd_joy_park_task.js             汪汪乐园每日任务
-#  jd_twCard.js                    特务Z集卡
 #  jd_superBrandStar.js            特务Z明星送好礼
 #  jd_joymanor_task.js             JOY庄园每日任务
 #  jd_jin_tie_xh.js                领金贴
 #  jd_insight_Mod.js               京洞察问卷通知
 #  jd_shangou.js                   闪购签到有礼
 #  jd_jrsign.js                    京东金融双签
-#  jd_daily_lottery.js             京东快递-每日抽奖
+#  jd_superBrand.js                特务Z-II
+#  jd_superBrandJK.js              特务集卡
+#  jd_superBrandJXZ.js             特务集勋章
+#  jd_superBrandStar.js            特务之明星送好礼
+#  jd_xiaomi.js                    8.12-8.26 小米818瓜分百万京豆
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -69,15 +71,17 @@
 
 ##############################  近  期  删  除  ##############################
 
-# jd_fan.js
+# jd_daily_lottery.js
+# jd_productZ4Brand.js
+# jd_twCard.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-07-27"
-UpdateContent="add  jd_daily_lottery.js(京东快递-每日抽奖)${NewLine}del  jd_fan.js jd_superBrandzd.js jd_ry.js"
-DeleteScripts="jd_fan.js jd_superBrandzd.js jd_ry.js"
+UpdateDate="2022-08-12"
+UpdateContent="add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)${NewLine}del  jd_daily_lottery.js"
+DeleteScripts="jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js"
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
@@ -87,7 +91,7 @@ else
 fi
 GitHubRawUrl="https://raw.githubusercontent.com"
 ## 作者
-author_list="Public star261 yyds KingRan jiulan X1a0He ccwav"
+author_list="Public yyds KingRan jiulan X1a0He ccwav"
 author_name=(
   Public
   star261
@@ -103,13 +107,6 @@ scripts_base_url_Public="https://supermanito.github.io/Helloworld/scripts/"
 my_scripts_array_Public=(
   jd_shop_sign.js
   jd_price.js
-)
-
-## star261
-scripts_base_url_star261="${GitHubRawUrl}/star261/jd/main/tw/"
-my_scripts_array_star261=(
-  jd_productZ4Brand.js
-  jd_twCard.js
 )
 
 ## yyds
@@ -133,14 +130,17 @@ my_scripts_array_yyds=(
 scripts_base_url_KingRan="${GitHubRawUrl}/KingRan/KR/main/"
 my_scripts_array_KingRan=(
   sign_graphics_validate.js
+  jd_superBrand.js
+  jd_superBrandJK.js
+  jd_superBrandJXZ.js
+  jd_superBrandStar.js
   jd_wish.js
   jd_beauty.js
   jd_joy_park_task.js
   jd_joymanor_task.js
-  jd_superBrandStar.js
   jd_sign_graphics.js
   jd_shangou.js
-  jd_daily_lottery.js
+  jd_xiaomi.js
 )
 
 ## jiulan
