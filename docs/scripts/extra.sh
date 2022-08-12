@@ -94,7 +94,6 @@ GitHubRawUrl="https://raw.githubusercontent.com"
 author_list="Public yyds KingRan jiulan X1a0He ccwav"
 author_name=(
   Public
-  star261
   yyds
   KingRan
   jiulan
