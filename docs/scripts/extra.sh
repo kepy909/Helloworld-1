@@ -80,8 +80,8 @@
 
 NewLine="\n          "
 UpdateDate="2022-08-12"
-UpdateContent="add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)${NewLine}del  jd_daily_lottery.js"
-DeleteScripts="jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js"
+UpdateContent="add  jd_xm818.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)${NewLine}del  jd_daily_lottery.js"
+DeleteScripts="jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js jd_xiaomi.js"
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
@@ -123,6 +123,7 @@ my_scripts_array_yyds=(
   jd_wyw.js
   jd_ddly.js
   jd_speed_redpocke.js
+  jd_xm818.js
 )
 
 ## KingRan
@@ -139,7 +140,6 @@ my_scripts_array_KingRan=(
   jd_joymanor_task.js
   jd_sign_graphics.js
   jd_shangou.js
-  jd_xiaomi.js
 )
 
 ## jiulan
