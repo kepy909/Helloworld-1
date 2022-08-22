@@ -91,12 +91,11 @@ else
 fi
 GitHubRawUrl="https://raw.githubusercontent.com"
 ## 作者
-author_list="Public yyds KingRan jiulan X1a0He ccwav"
+author_list="Public yyds KingRan X1a0He ccwav"
 author_name=(
   Public
   yyds
   KingRan
-  jiulan
   X1a0He
   ccwav
 )
@@ -140,11 +139,6 @@ my_scripts_array_KingRan=(
   jd_joymanor_task.js
   jd_sign_graphics.js
   jd_shangou.js
-)
-
-## jiulan
-scripts_base_url_jiulan="${GitHubRawUrl}/jiulan/platypus/main/scripts/"
-my_scripts_array_jiulan=(
   jd_txjf.js
 )
 
