@@ -1,6 +1,6 @@
 #!/bin/bash
-# Update: 2022-08-12
-# Content: add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)
+# Update: 2022-09-13
+# Content: add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)jd_hwj_sb.js(平行时空 刷金币)
 #          del  jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js
 
 ##############################  京  东  商  城  ##############################
@@ -38,6 +38,7 @@
 #  jd_superBrandJXZ.js             特务集勋章
 #  jd_superBrandStar.js            特务之明星送好礼
 #  jd_xiaomi.js                    8.12-8.26 小米818瓜分百万京豆
+#  jd_hwj_sb.js                    平行时空 刷金币 可以用来升级
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -123,6 +124,7 @@ my_scripts_array_yyds=(
   jd_ddly.js
   jd_speed_redpocke.js
   jd_xm818.js
+  jd_hwj_sb.js
 )
 
 ## KingRan
