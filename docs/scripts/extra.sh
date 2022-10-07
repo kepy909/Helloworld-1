@@ -1,5 +1,5 @@
 #!/bin/bash
-# Update: 2022-09-13
+# Update: 2022-10-07
 # Content: add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)jd_hwj_sb.js(平行时空 刷金币)
 #          del  jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js
 
@@ -38,7 +38,7 @@
 #  jd_superBrandJXZ.js             特务集勋章
 #  jd_superBrandStar.js            特务之明星送好礼
 #  jd_xiaomi.js                    8.12-8.26 小米818瓜分百万京豆
-#  jd_hwj_sb.js                    平行时空 刷金币 可以用来升级
+#  jd_gold_creation.js             金榜创造营
 
 ##############################  脚  本  内  环  境  变  量  ##############################
 ## 推荐使用项目自带的环境变量管理命令，默认交互支持快捷命令
@@ -80,8 +80,8 @@
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-09-13"
-UpdateContent="add  jd_xm818.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章) jd_hwj_sb.js(平行时空 刷金币)${NewLine}del  jd_daily_lottery.js"
+UpdateDate="2022-10-07"
+UpdateContent="add  jd_xm818.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章) jd_gold_creation.js(金榜创造营)${NewLine}del  jd_daily_lottery.js"
 DeleteScripts="jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js jd_xiaomi.js"
 
 ## 定义下载代理 (非内置功能)
@@ -124,7 +124,6 @@ my_scripts_array_yyds=(
   jd_ddly.js
   jd_speed_redpocke.js
   jd_xm818.js
-  jd_hwj_sb.js
 )
 
 ## KingRan
@@ -142,6 +141,7 @@ my_scripts_array_KingRan=(
   jd_sign_graphics.js
   jd_shangou.js
   jd_txjf.js
+  jd_gold_creation.js
 )
 
 ## X1a0He
