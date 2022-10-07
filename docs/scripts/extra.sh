@@ -75,6 +75,7 @@
 # jd_daily_lottery.js
 # jd_productZ4Brand.js
 # jd_twCard.js
+# jd_hwj_sb.js
 
 ##############################  主  要  代  码  ##############################
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
