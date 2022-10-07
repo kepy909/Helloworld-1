@@ -1,7 +1,7 @@
 #!/bin/bash
 # Update: 2022-10-07
-# Content: add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)jd_hwj_sb.js(平行时空 刷金币)
-#          del  jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js
+# Content: add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)jd_gold_creation.js(金榜创造营)
+#          del  jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js jd_hwj_sb.js
 
 ##############################  京  东  商  城  ##############################
 ## 列表格式： 脚本名称 | 活动名称 | 备注说明
@@ -82,7 +82,7 @@
 NewLine="\n          "
 UpdateDate="2022-10-07"
 UpdateContent="add  jd_xm818.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章) jd_gold_creation.js(金榜创造营)${NewLine}del  jd_daily_lottery.js"
-DeleteScripts="jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js jd_xiaomi.js"
+DeleteScripts="jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js jd_xiaomi.js jd_hwj_sb.js"
 
 ## 定义下载代理 (非内置功能)
 if [[ ${EnableExtraShellProxy} ]] && [[ ${EnableExtraShellProxy} == true ]]; then
