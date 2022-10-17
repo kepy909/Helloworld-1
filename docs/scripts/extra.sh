@@ -1,6 +1,6 @@
 #!/bin/bash
-# Update: 2022-10-07
-# Content: add  jd_xiaomi.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)jd_gold_creation.js(金榜创造营)
+# Update: 2022-10-17
+# Content: add  jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章)jd_gold_creation.js(金榜创造营)
 #          del  jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js jd_hwj_sb.js
 
 ##############################  京  东  商  城  ##############################
@@ -37,7 +37,6 @@
 #  jd_superBrandJK.js              特务集卡
 #  jd_superBrandJXZ.js             特务集勋章
 #  jd_superBrandStar.js            特务之明星送好礼
-#  jd_xiaomi.js                    8.12-8.26 小米818瓜分百万京豆
 #  jd_gold_creation.js             金榜创造营
 
 ##############################  脚  本  内  环  境  变  量  ##############################
@@ -81,8 +80,8 @@
 ## 免责声明：当作者的脚本不可拉取时，会临时启用别人 FORK 或搬运的库代替
 
 NewLine="\n          "
-UpdateDate="2022-10-07"
-UpdateContent="add  jd_xm818.js(8.12-8.26 小米818瓜分百万京豆) jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章) jd_gold_creation.js(金榜创造营)${NewLine}del  jd_daily_lottery.js"
+UpdateDate="2022-10-17"
+UpdateContent="add  jd_superBrand.js(特务Z-II) jd_superBrandJK.js(特务集卡) jd_superBrandJXZ.js(特务集勋章) jd_gold_creation.js(金榜创造营)"
 DeleteScripts="jd_daily_lottery.js jd_productZ4Brand.js jd_twCard.js jd_xiaomi.js jd_hwj_sb.js"
 
 ## 定义下载代理 (非内置功能)
@@ -124,7 +123,6 @@ my_scripts_array_yyds=(
   jd_wyw.js
   jd_ddly.js
   jd_speed_redpocke.js
-  jd_xm818.js
 )
 
 ## KingRan
@@ -141,7 +139,6 @@ my_scripts_array_KingRan=(
   jd_joymanor_task.js
   jd_sign_graphics.js
   jd_shangou.js
-  jd_txjf.js
   jd_gold_creation.js
 )
 
