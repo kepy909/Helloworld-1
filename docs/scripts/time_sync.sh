@@ -53,7 +53,7 @@ function Main() {
         echo -e ''
         while true; do
             ## 先同步京东服务器时间
-            date -s $(date -d @$(curl -sSL "${Interface}" | awk -F '\"' '{print$8}' | cut -c1-10) "+%H:%M:%S") >/dev/null
+            date -s $(date -d $(curl -sSL "${Interface}" | awk -F '\"' '{print$8}' | cut -c1-10) "+%H:%M:%S") >/dev/null
             sleep 1
             ## 定义当前系统本地时间戳
             local LocalTimeStamp="$(date +%s)$(date +%N | cut -c1-3)"
